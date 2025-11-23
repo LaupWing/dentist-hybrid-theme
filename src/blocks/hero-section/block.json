@@ -1,0 +1,62 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "dentist-hybrid/hero-section",
+  "title": "Hero Section",
+  "category": "design",
+  "icon": "cover-image",
+  "description": "A hero section with background image, heading, description, buttons, and service cards.",
+  "keywords": ["hero", "banner", "header"],
+  "textdomain": "dentist-hybrid-theme",
+  "editorScript": "file:./index.js",
+  "attributes": {
+    "backgroundImage": {
+      "type": "string",
+      "default": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1920"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Pain-Free Treatments For Perfect Smiles"
+    },
+    "description": {
+      "type": "string",
+      "default": "Our caring team offers personalized dental care for all ages, focusing on comfort and healthy smiles in a friendly, supportive environment."
+    },
+    "primaryButtonText": {
+      "type": "string",
+      "default": "Book Now"
+    },
+    "primaryButtonUrl": {
+      "type": "string",
+      "default": "/contact"
+    },
+    "secondaryButtonText": {
+      "type": "string",
+      "default": "Learn More"
+    },
+    "secondaryButtonUrl": {
+      "type": "string",
+      "default": "/services"
+    },
+    "cards": {
+      "type": "array",
+      "default": [
+        {
+          "title": "Preventive Dental Care",
+          "description": "Regular cleanings and exams to maintain oral health, prevent cavities, and catch issues early.",
+          "icon": "plus"
+        },
+        {
+          "title": "Cosmetic Teeth Whitening",
+          "description": "Regular cleanings and exams to maintain oral health, prevent cavities, and catch issues early.",
+          "icon": "smile"
+        },
+        {
+          "title": "Restorative Dental Treatments",
+          "description": "Regular cleanings and exams to maintain oral health, prevent cavities, and catch issues early.",
+          "icon": "shield"
+        }
+      ]
+    }
+  }
+}
