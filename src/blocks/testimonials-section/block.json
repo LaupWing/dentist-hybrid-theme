@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "dentist-hybrid/testimonials-section",
+  "title": "Testimonials Section",
+  "category": "design",
+  "icon": "format-quote",
+  "description": "Display testimonials from the Testimonials custom post type with carousel navigation.",
+  "keywords": ["testimonials", "reviews", "clients"],
+  "textdomain": "dentist-hybrid-theme",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js",
+  "attributes": {
+    "sectionLabel": {
+      "type": "string",
+      "default": "Testimonial"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Client Stories"
+    },
+    "description": {
+      "type": "string",
+      "default": "Smiles transformed through expert care, compassion, and lasting dental health solutions."
+    }
+  }
+}

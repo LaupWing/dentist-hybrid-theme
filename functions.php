@@ -56,6 +56,9 @@ function dentist_hybrid_register_blocks() {
 
     // Register services-section block
     register_block_type(__DIR__ . '/build/blocks/services-section');
+
+    // Register testimonials-section block
+    register_block_type(__DIR__ . '/build/blocks/testimonials-section');
 }
 add_action('init', 'dentist_hybrid_register_blocks');
 
@@ -150,3 +153,19 @@ function dentist_hybrid_save_testimonial_meta($post_id) {
     }
 }
 add_action('save_post', 'dentist_hybrid_save_testimonial_meta');
+
+// Expose testimonial meta fields to REST API
+function dentist_hybrid_register_testimonial_meta_rest() {
+    register_post_meta('testimonial', '_testimonial_email', array(
+        'show_in_rest' => true,
+        'single' => true,
+        'type' => 'string',
+    ));
+
+    register_post_meta('testimonial', '_testimonial_company', array(
+        'show_in_rest' => true,
+        'single' => true,
+        'type' => 'string',
+    ));
+}
+add_action('init', 'dentist_hybrid_register_testimonial_meta_rest');
