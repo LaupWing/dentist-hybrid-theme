@@ -9,6 +9,7 @@
   "keywords": ["about", "stats", "team"],
   "textdomain": "dentist-hybrid-theme",
   "editorScript": "file:./index.js",
+  "render": "file:./render.php",
   "attributes": {
     "sectionLabel": {
       "type": "string",

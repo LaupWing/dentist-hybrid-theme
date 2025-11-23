@@ -9,6 +9,7 @@
   "keywords": ["hero", "banner", "header"],
   "textdomain": "dentist-hybrid-theme",
   "editorScript": "file:./index.js",
+  "render": "file:./render.php",
   "attributes": {
     "backgroundImage": {
       "type": "string",
