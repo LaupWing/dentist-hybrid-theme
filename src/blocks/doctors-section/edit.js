@@ -97,7 +97,7 @@ export default function Edit({ attributes, setAttributes }) {
                                         {index === 2 ? (
                                             // Large doctor (index 2)
                                             <>
-                                                <div className="relative aspect-[4/5] w-full bg-slate-200">
+                                                <div className="relative aspect-[4/3] w-full bg-slate-200">
                                                     {imageUrl && (
                                                         <img src={imageUrl} alt={doctor.title?.rendered} className="h-full w-full object-cover object-top" />
                                                     )}
@@ -110,7 +110,7 @@ export default function Edit({ attributes, setAttributes }) {
                                         ) : index < 2 ? (
                                             // First two doctors
                                             <>
-                                                <div className="relative mb-6 aspect-square w-full overflow-hidden rounded-full bg-slate-200 md:aspect-square md:w-full md:rounded-none">
+                                                <div className="relative mb-6 aspect-square w-full overflow-hidden rounded-full bg-slate-200 md:aspect-[4/3] md:w-full md:rounded-none">
                                                     {imageUrl && (
                                                         <img src={imageUrl} alt={doctor.title?.rendered} className="h-full w-full object-cover" />
                                                     )}
