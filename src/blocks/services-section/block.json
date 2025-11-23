@@ -1,0 +1,59 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "dentist-hybrid/services-section",
+  "title": "Services Section",
+  "category": "design",
+  "icon": "admin-tools",
+  "description": "Services section with heading, description, CTA button, and service cards.",
+  "keywords": ["services", "dental", "treatments"],
+  "textdomain": "dentist-hybrid-theme",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js",
+  "attributes": {
+    "sectionLabel": {
+      "type": "string",
+      "default": "Service"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Dental Service"
+    },
+    "description": {
+      "type": "string",
+      "default": "We offer quality dental care with cleanings, fillings, whitening, and personalized treatments from experienced dentists in a comfortable, friendly environment."
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Book Now"
+    },
+    "buttonUrl": {
+      "type": "string",
+      "default": "/contact"
+    },
+    "services": {
+      "type": "array",
+      "default": [
+        {
+          "title": "Preventive Dental Care",
+          "description": "Regular cleanings and exams to maintain oral health, prevent cavities, and catch issues early.",
+          "icon": "plus",
+          "image": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=400"
+        },
+        {
+          "title": "Cosmetic Teeth Whitening",
+          "description": "Regular cleanings and exams to maintain oral health, prevent cavities, and catch issues early.",
+          "icon": "smile",
+          "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=400"
+        },
+        {
+          "title": "Restorative Dental Treatments",
+          "description": "Regular cleanings and exams to maintain oral health, prevent cavities, and catch issues early.",
+          "icon": "shield",
+          "image": "https://images.unsplash.com/photo-1609840114035-3c981960a79e?w=400"
+        }
+      ]
+    }
+  }
+}

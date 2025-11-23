@@ -53,5 +53,8 @@ function dentist_hybrid_register_blocks() {
 
     // Register about-section block
     register_block_type(__DIR__ . '/build/blocks/about-section');
+
+    // Register services-section block
+    register_block_type(__DIR__ . '/build/blocks/services-section');
 }
 add_action('init', 'dentist_hybrid_register_blocks');
