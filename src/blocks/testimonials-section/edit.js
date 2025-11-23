@@ -31,7 +31,7 @@ export default function Edit({ attributes, setAttributes }) {
             </InspectorControls>
 
             <section {...blockProps} className="bg-[#f0efe9] py-32">
-                <div className="container mx-auto px-6 text-center">
+                <div className="container mx-auto text-center">
                     <div className="mb-8 flex items-center gap-4">
                         <div className="h-[2px] w-full bg-slate-300"></div>
                         <span className="whitespace-nowrap text-xs font-bold uppercase tracking-widest text-slate-500">

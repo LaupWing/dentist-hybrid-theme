@@ -126,7 +126,7 @@ export default function Edit({ attributes, setAttributes }) {
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
 
-                <div className="container relative mx-auto px-6 pt-20 pb-12">
+                <div className="container relative mx-auto pt-20 pb-12">
                     {/* Hero Text Content */}
                     <div className="max-w-3xl mb-16">
                         <RichText

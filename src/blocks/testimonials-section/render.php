@@ -25,7 +25,7 @@ $unique_id = 'testimonials-' . uniqid();
 ?>
 
 <section <?php echo get_block_wrapper_attributes(['class' => 'bg-[#f0efe9] py-32']); ?>>
-    <div class="container mx-auto px-6 text-center">
+    <div class="container mx-auto text-center">
         <div class="mb-8 flex items-center gap-4">
             <div class="h-[2px] w-full bg-slate-300"></div>
             <span class="whitespace-nowrap text-xs font-bold uppercase tracking-widest text-slate-500">

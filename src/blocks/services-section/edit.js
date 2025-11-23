@@ -111,7 +111,7 @@ export default function Edit({ attributes, setAttributes }) {
             </InspectorControls>
 
             <section {...blockProps} className="bg-[#4338ca] py-24 text-white">
-                <div className="container mx-auto px-6">
+                <div className="container mx-auto">
                     <div className="mb-4 flex items-center gap-4">
                         <span className="whitespace-nowrap text-xs font-bold uppercase tracking-widest text-white/70">
                             {sectionLabel}

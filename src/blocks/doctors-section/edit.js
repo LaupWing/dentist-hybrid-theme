@@ -41,7 +41,7 @@ export default function Edit({ attributes, setAttributes }) {
             </InspectorControls>
 
             <section {...blockProps} className="py-24">
-                <div className="container mx-auto px-6">
+                <div className="container mx-auto">
                     <div className="mb-8 flex items-center gap-4">
                         <span className="whitespace-nowrap text-xs font-bold uppercase tracking-widest text-slate-500">
                             {sectionLabel}
@@ -97,7 +97,7 @@ export default function Edit({ attributes, setAttributes }) {
                                         {index === 2 ? (
                                             // Large doctor (index 2)
                                             <>
-                                                <div className="relative aspect-square w-full bg-slate-200">
+                                                <div className="relative aspect-[4/5] w-full bg-slate-200">
                                                     {imageUrl && (
                                                         <img src={imageUrl} alt={doctor.title?.rendered} className="h-full w-full object-cover object-top" />
                                                     )}

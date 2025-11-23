@@ -25,7 +25,7 @@ $doctors_query = new WP_Query([
 ?>
 
 <section <?php echo get_block_wrapper_attributes(['class' => 'py-24']); ?>>
-    <div class="container mx-auto px-6">
+    <div class="container mx-auto">
         <div class="mb-8 flex items-center gap-4">
             <span class="whitespace-nowrap text-xs font-bold uppercase tracking-widest text-slate-500">
                 <?php echo esc_html($section_label); ?>
@@ -71,8 +71,8 @@ $doctors_query = new WP_Query([
 
                     <?php if ($index === 2) : ?>
                         <!-- Large doctor (index 2) -->
-                        <div class="flex flex-col bg-slate-50 <?php echo esc_attr($grid_class); ?>">
-                            <div class="relative aspect-square w-full bg-slate-200">
+                        <a href="<?php echo esc_url(get_permalink()); ?>" class="flex flex-col bg-slate-50 transition-transform hover:scale-[1.02] <?php echo esc_attr($grid_class); ?>">
+                            <div class="relative aspect-[4/5] w-full bg-slate-200">
                                 <?php if ($image_url) : ?>
                                     <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="h-full w-full object-cover object-top">
                                 <?php endif; ?>
@@ -83,11 +83,11 @@ $doctors_query = new WP_Query([
                                     <p class="text-sm text-slate-500"><?php echo esc_html($role); ?></p>
                                 <?php endif; ?>
                             </div>
-                        </div>
+                        </a>
 
                     <?php elseif ($index < 2) : ?>
                         <!-- First two doctors -->
-                        <div class="flex flex-col bg-slate-50 p-6 <?php echo esc_attr($grid_class); ?>">
+                        <a href="<?php echo esc_url(get_permalink()); ?>" class="flex flex-col bg-slate-50 p-6 transition-transform hover:scale-[1.02] <?php echo esc_attr($grid_class); ?>">
                             <div class="relative mb-6 aspect-square w-full overflow-hidden rounded-full bg-slate-200 md:aspect-square md:w-full md:rounded-none">
                                 <?php if ($image_url) : ?>
                                     <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="h-full w-full object-cover">
@@ -97,11 +97,11 @@ $doctors_query = new WP_Query([
                             <?php if ($role) : ?>
                                 <p class="text-sm text-slate-500"><?php echo esc_html($role); ?></p>
                             <?php endif; ?>
-                        </div>
+                        </a>
 
                     <?php else : ?>
                         <!-- Last two doctors -->
-                        <div class="flex flex-col bg-slate-50 p-6 <?php echo esc_attr($grid_class); ?>">
+                        <a href="<?php echo esc_url(get_permalink()); ?>" class="flex flex-col bg-slate-50 p-6 transition-transform hover:scale-[1.02] <?php echo esc_attr($grid_class); ?>">
                             <div class="relative mb-4 aspect-square w-full bg-slate-200">
                                 <?php if ($image_url) : ?>
                                     <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="h-full w-full object-cover">
@@ -111,7 +111,7 @@ $doctors_query = new WP_Query([
                             <?php if ($role) : ?>
                                 <p class="text-xs text-slate-500"><?php echo esc_html($role); ?></p>
                             <?php endif; ?>
-                        </div>
+                        </a>
                     <?php endif; ?>
 
                 <?php

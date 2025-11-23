@@ -134,7 +134,7 @@ export default function Edit({ attributes, setAttributes }) {
             </InspectorControls>
 
             <section {...blockProps} className="py-24">
-                <div className="container mx-auto px-6">
+                <div className="container mx-auto">
                     <div className="mb-4 flex items-center gap-4">
                         <span className="whitespace-nowrap text-xs font-bold uppercase tracking-widest text-slate-500">
                             {sectionLabel}

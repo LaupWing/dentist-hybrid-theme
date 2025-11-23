@@ -1,5 +1,5 @@
 <footer class="relative overflow-hidden bg-slate-50 pb-24 pt-32 text-sm font-medium text-slate-900">
-    <div class="container relative z-10 mx-auto grid gap-12 px-6 md:grid-cols-4">
+    <div class="container relative z-10 mx-auto grid gap-12 md:grid-cols-4">
         <div class="md:col-span-2">
             <h4 class="mb-6 font-bold">Do it once. Do it right.</h4>
             <div class="mb-8">

@@ -50,7 +50,7 @@ $icons = [
 
     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
 
-    <div class="container relative mx-auto px-6 pt-20 pb-12">
+    <div class="container relative mx-auto pt-20 pb-12">
         <!-- Hero Text Content -->
         <div class="max-w-3xl mb-16">
             <h1 class="mb-6 text-5xl font-bold uppercase leading-[0.9] tracking-tight sm:text-6xl md:text-7xl text-white max-w-4xl">

@@ -19,6 +19,12 @@ body {
   padding: 0;
 }
 
+/* Container with default padding */
+.container {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
 /* WordPress Block Resets */
 .wp-block-group,
 .wp-block-cover,

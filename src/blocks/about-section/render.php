@@ -32,7 +32,7 @@ $decorative_icon = $attributes['decorativeIcon'] ?? '';
 ?>
 
 <section <?php echo get_block_wrapper_attributes(['class' => 'py-24']); ?>>
-    <div class="container mx-auto px-6">
+    <div class="container mx-auto">
         <div class="mb-4 flex items-center gap-4">
             <span class="whitespace-nowrap text-xs font-bold uppercase tracking-widest text-slate-500">
                 <?php echo esc_html($section_label); ?>
