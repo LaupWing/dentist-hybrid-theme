@@ -72,9 +72,9 @@ $doctors_query = new WP_Query([
                     <?php if ($index === 2) : ?>
                         <!-- Large doctor (index 2) -->
                         <a href="<?php echo esc_url(get_permalink()); ?>" class="flex flex-col bg-slate-50 transition-transform hover:scale-[1.02] <?php echo esc_attr($grid_class); ?>">
-                            <div class="relative aspect-[4/3] w-full bg-slate-200">
+                            <div class="relative aspect-[4/3] w-full overflow-hidden bg-slate-200">
                                 <?php if ($image_url) : ?>
-                                    <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="h-full w-full object-cover object-top">
+                                    <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="absolute inset-0 h-full w-full object-cover object-top">
                                 <?php endif; ?>
                             </div>
                             <div class="p-8">
@@ -90,7 +90,7 @@ $doctors_query = new WP_Query([
                         <a href="<?php echo esc_url(get_permalink()); ?>" class="flex flex-col bg-slate-50 p-6 transition-transform hover:scale-[1.02] <?php echo esc_attr($grid_class); ?>">
                             <div class="relative mb-6 aspect-square w-full overflow-hidden rounded-full bg-slate-200 md:aspect-[4/3] md:w-full md:rounded-none">
                                 <?php if ($image_url) : ?>
-                                    <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="h-full w-full object-cover">
+                                    <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="absolute inset-0 h-full w-full object-cover">
                                 <?php endif; ?>
                             </div>
                             <h3 class="text-lg font-bold"><?php echo esc_html(get_the_title()); ?></h3>
@@ -102,9 +102,9 @@ $doctors_query = new WP_Query([
                     <?php else : ?>
                         <!-- Last two doctors -->
                         <a href="<?php echo esc_url(get_permalink()); ?>" class="flex flex-col bg-slate-50 p-6 transition-transform hover:scale-[1.02] <?php echo esc_attr($grid_class); ?>">
-                            <div class="relative mb-4 aspect-square w-full bg-slate-200">
+                            <div class="relative mb-4 aspect-square w-full overflow-hidden bg-slate-200">
                                 <?php if ($image_url) : ?>
-                                    <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="h-full w-full object-cover">
+                                    <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="absolute inset-0 h-full w-full object-cover">
                                 <?php endif; ?>
                             </div>
                             <h3 class="font-bold"><?php echo esc_html(get_the_title()); ?></h3>

@@ -97,9 +97,9 @@ export default function Edit({ attributes, setAttributes }) {
                                         {index === 2 ? (
                                             // Large doctor (index 2)
                                             <>
-                                                <div className="relative aspect-[4/3] w-full bg-slate-200">
+                                                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-200">
                                                     {imageUrl && (
-                                                        <img src={imageUrl} alt={doctor.title?.rendered} className="h-full w-full object-cover object-top" />
+                                                        <img src={imageUrl} alt={doctor.title?.rendered} className="absolute inset-0 h-full w-full object-cover object-top" />
                                                     )}
                                                 </div>
                                                 <div className="p-8">
@@ -112,7 +112,7 @@ export default function Edit({ attributes, setAttributes }) {
                                             <>
                                                 <div className="relative mb-6 aspect-square w-full overflow-hidden rounded-full bg-slate-200 md:aspect-[4/3] md:w-full md:rounded-none">
                                                     {imageUrl && (
-                                                        <img src={imageUrl} alt={doctor.title?.rendered} className="h-full w-full object-cover" />
+                                                        <img src={imageUrl} alt={doctor.title?.rendered} className="absolute inset-0 h-full w-full object-cover" />
                                                     )}
                                                 </div>
                                                 <h3 className="text-lg font-bold">{doctor.title?.rendered || __('No name', 'dentist-hybrid-theme')}</h3>
@@ -121,9 +121,9 @@ export default function Edit({ attributes, setAttributes }) {
                                         ) : (
                                             // Last two doctors
                                             <>
-                                                <div className="relative mb-4 aspect-square w-full bg-slate-200">
+                                                <div className="relative mb-4 aspect-square w-full overflow-hidden bg-slate-200">
                                                     {imageUrl && (
-                                                        <img src={imageUrl} alt={doctor.title?.rendered} className="h-full w-full object-cover" />
+                                                        <img src={imageUrl} alt={doctor.title?.rendered} className="absolute inset-0 h-full w-full object-cover" />
                                                     )}
                                                 </div>
                                                 <h3 className="font-bold">{doctor.title?.rendered || __('No name', 'dentist-hybrid-theme')}</h3>
