@@ -13,6 +13,7 @@ export default function Edit({ attributes, setAttributes }) {
         stats,
         image1,
         image2,
+        decorativeIcon,
     } = attributes;
 
     const updateStat = (index, field, value) => {
@@ -96,6 +97,39 @@ export default function Edit({ attributes, setAttributes }) {
                             )}
                         />
                     </MediaUploadCheck>
+
+                    <h4 style={{ marginTop: '20px' }}>{__('Decorative Icon (Optional)', 'dentist-hybrid-theme')}</h4>
+                    <p style={{ fontSize: '12px', color: '#757575', marginBottom: '10px' }}>
+                        {__('This icon will be repeated 5 times. Leave empty for default circles.', 'dentist-hybrid-theme')}
+                    </p>
+                    <MediaUploadCheck>
+                        <MediaUpload
+                            onSelect={(media) => setAttributes({ decorativeIcon: media.url })}
+                            allowedTypes={['image']}
+                            value={decorativeIcon}
+                            render={({ open }) => (
+                                <div>
+                                    {decorativeIcon && (
+                                        <img
+                                            src={decorativeIcon}
+                                            alt="Decorative Icon"
+                                            style={{ width: '64px', marginBottom: '10px', borderRadius: '50%' }}
+                                        />
+                                    )}
+                                    <div style={{ display: 'flex', gap: '8px' }}>
+                                        <Button onClick={open} variant="primary">
+                                            {decorativeIcon ? __('Change Icon', 'dentist-hybrid-theme') : __('Select Icon', 'dentist-hybrid-theme')}
+                                        </Button>
+                                        {decorativeIcon && (
+                                            <Button onClick={() => setAttributes({ decorativeIcon: '' })} variant="secondary">
+                                                {__('Remove', 'dentist-hybrid-theme')}
+                                            </Button>
+                                        )}
+                                    </div>
+                                </div>
+                            )}
+                        />
+                    </MediaUploadCheck>
                 </PanelBody>
             </InspectorControls>
 
@@ -140,7 +174,15 @@ export default function Edit({ attributes, setAttributes }) {
                             <div className="mb-12 flex justify-end gap-4">
                                 {[1, 2, 3, 4, 5].map((i) => (
                                     <div key={i} className="flex h-16 w-16 items-center justify-center rounded-full bg-indigo-50 p-3">
-                                        <div className="h-10 w-10 rounded-full bg-indigo-100"></div>
+                                        {decorativeIcon ? (
+                                            <img
+                                                src={decorativeIcon}
+                                                alt="icon"
+                                                className="h-10 w-10 rounded-full object-cover"
+                                            />
+                                        ) : (
+                                            <div className="h-10 w-10 rounded-full bg-indigo-100"></div>
+                                        )}
                                     </div>
                                 ))}
                             </div>

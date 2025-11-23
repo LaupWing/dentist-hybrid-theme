@@ -28,6 +28,7 @@ $stats = $attributes['stats'] ?? [
 ];
 $image1 = $attributes['image1'] ?? 'https://images.unsplash.com/photo-1609840114035-3c981960a79e?w=800';
 $image2 = $attributes['image2'] ?? 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800';
+$decorative_icon = $attributes['decorativeIcon'] ?? '';
 ?>
 
 <section <?php echo get_block_wrapper_attributes(['class' => 'py-24']); ?>>
@@ -56,7 +57,15 @@ $image2 = $attributes['image2'] ?? 'https://images.unsplash.com/photo-1588776814
                 <div class="mb-12 flex justify-end gap-4">
                     <?php for ($i = 1; $i <= 5; $i++) : ?>
                         <div class="flex h-16 w-16 items-center justify-center rounded-full bg-indigo-50 p-3">
-                            <div class="h-10 w-10 rounded-full bg-indigo-100"></div>
+                            <?php if (!empty($decorative_icon)) : ?>
+                                <img
+                                    src="<?php echo esc_url($decorative_icon); ?>"
+                                    alt="icon"
+                                    class="h-10 w-10 rounded-full object-cover"
+                                />
+                            <?php else : ?>
+                                <div class="h-10 w-10 rounded-full bg-indigo-100"></div>
+                            <?php endif; ?>
                         </div>
                     <?php endfor; ?>
                 </div>

@@ -51,6 +51,10 @@
     "image2": {
       "type": "string",
       "default": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800"
+    },
+    "decorativeIcon": {
+      "type": "string",
+      "default": ""
     }
   }
 }
