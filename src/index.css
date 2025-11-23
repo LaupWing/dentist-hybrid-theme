@@ -10,6 +10,7 @@
   /* Typography */
   --font-heading: system-ui, sans-serif;
   --font-body: system-ui, sans-serif;
+  --font-oswald: 'Oswald', sans-serif;
 }
 
 /* Body Reset for Absolute Header */

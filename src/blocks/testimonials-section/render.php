@@ -37,14 +37,22 @@ $unique_id = 'testimonials-' . uniqid();
         <h2 class="mx-auto mb-4 max-w-2xl text-5xl font-bold uppercase leading-none tracking-tight text-[#4338ca] md:text-6xl">
             <?php echo wp_kses_post($heading); ?>
         </h2>
-        <p class="mx-auto mb-16 max-w-lg text-sm text-slate-500">
+        <p class="mx-auto mb-8 max-w-lg text-sm text-slate-500">
             <?php echo wp_kses_post($description); ?>
         </p>
 
         <?php if ($testimonials_query->have_posts()) : ?>
-            <div class="mx-auto max-w-4xl">
-                <div class="relative px-12">
-                    <div id="<?php echo esc_attr($unique_id); ?>" class="testimonials-carousel">
+            <div class="mx-auto max-w-6xl">
+                <div class="flex items-center gap-8">
+                    <!-- Left Button -->
+                    <button class="testimonial-prev flex h-12 w-12 flex-shrink-0 cursor-pointer items-center justify-center rounded-md bg-black text-white transition-colors hover:bg-slate-800" aria-label="Previous testimonial" data-carousel="<?php echo esc_attr($unique_id); ?>">
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Testimonials Content Container -->
+                    <div id="<?php echo esc_attr($unique_id); ?>" class="testimonials-carousel flex-1">
                         <?php
                         $index = 0;
                         while ($testimonials_query->have_posts()) :
@@ -58,26 +66,14 @@ $unique_id = 'testimonials-' . uniqid();
                                     "<?php echo wp_kses_post(get_the_content()); ?>"
                                 </div>
 
-                                <div class="flex items-center justify-center gap-4">
-                                    <button class="testimonial-prev flex h-12 w-12 items-center justify-center bg-black text-white transition-colors hover:bg-slate-800" aria-label="Previous testimonial">
-                                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div class="px-8">
-                                        <div class="font-bold text-slate-900"><?php echo esc_html(get_the_title()); ?></div>
-                                        <?php if ($email) : ?>
-                                            <div class="text-sm text-slate-500"><?php echo esc_html($email); ?></div>
-                                        <?php endif; ?>
-                                        <?php if ($company) : ?>
-                                            <div class="text-xs text-slate-400"><?php echo esc_html($company); ?></div>
-                                        <?php endif; ?>
-                                    </div>
-                                    <button class="testimonial-next flex h-12 w-12 items-center justify-center bg-black text-white transition-colors hover:bg-slate-800" aria-label="Next testimonial">
-                                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                        </svg>
-                                    </button>
+                                <div class="px-8 text-center">
+                                    <div class="font-bold text-slate-900"><?php echo esc_html(get_the_title()); ?></div>
+                                    <?php if ($email) : ?>
+                                        <div class="text-sm text-slate-500"><?php echo esc_html($email); ?></div>
+                                    <?php endif; ?>
+                                    <?php if ($company) : ?>
+                                        <div class="text-xs text-slate-400"><?php echo esc_html($company); ?></div>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         <?php
@@ -86,6 +82,13 @@ $unique_id = 'testimonials-' . uniqid();
                         wp_reset_postdata();
                         ?>
                     </div>
+
+                    <!-- Right Button -->
+                    <button class="testimonial-next flex h-12 w-12 flex-shrink-0 cursor-pointer items-center justify-center rounded-md bg-black text-white transition-colors hover:bg-slate-800" aria-label="Next testimonial" data-carousel="<?php echo esc_attr($unique_id); ?>">
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
                 </div>
             </div>
         <?php else : ?>

@@ -5,13 +5,21 @@
 
 // Enqueue Tailwind CSS
 function dentist_hybrid_enqueue_styles() {
+    // Enqueue Oswald font from Google Fonts
+    wp_enqueue_style(
+        'dentist-hybrid-oswald-font',
+        'https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap',
+        array(),
+        null
+    );
+
     $css_file = get_theme_file_path('build/index.css');
     $version = file_exists($css_file) ? filemtime($css_file) : '1.0.0';
 
     wp_enqueue_style(
         'dentist-hybrid-tailwind',
         get_theme_file_uri('build/index.css'),
-        array(),
+        array('dentist-hybrid-oswald-font'),
         $version
     );
 }
@@ -34,13 +42,21 @@ add_action('after_setup_theme', 'dentist_hybrid_setup');
 
 // Enqueue Editor Styles
 function dentist_hybrid_enqueue_editor_assets() {
+    // Enqueue Oswald font for editor
+    wp_enqueue_style(
+        'dentist-hybrid-oswald-font-editor',
+        'https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap',
+        array(),
+        null
+    );
+
     $css_file = get_theme_file_path('build/index.css');
     $version = file_exists($css_file) ? filemtime($css_file) : '1.0.0';
 
     wp_enqueue_style(
         'dentist-hybrid-editor',
         get_theme_file_uri('build/index.css'),
-        array(),
+        array('dentist-hybrid-oswald-font-editor'),
         $version
     );
 }
