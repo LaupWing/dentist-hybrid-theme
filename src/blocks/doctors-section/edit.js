@@ -81,7 +81,7 @@ export default function Edit({ attributes, setAttributes }) {
                             <p className="mt-4 text-slate-500">{__('Loading doctors...', 'dentist-hybrid-theme')}</p>
                         </div>
                     ) : doctors && doctors.length > 0 ? (
-                        <div className="grid gap-8 md:grid-cols-4 md:grid-rows-2">
+                        <div className="grid gap-8 md:grid-cols-4">
                             {doctors.slice(0, 5).map((doctor, index) => {
                                 const role = doctor.meta?._doctor_role || '';
                                 const imageUrl = doctor._embedded?.['wp:featuredmedia']?.[0]?.source_url || '';
@@ -90,19 +90,19 @@ export default function Edit({ attributes, setAttributes }) {
                                 let gridClass = '';
                                 if (index === 0) gridClass = 'md:col-span-2';
                                 else if (index === 1) gridClass = 'md:col-span-2';
-                                else if (index === 2) gridClass = 'md:col-span-2 md:row-span-2';
+                                else if (index === 2) gridClass = 'md:col-span-2';
 
                                 return (
-                                    <div key={doctor.id} className={`flex flex-col border-2 border-dashed border-indigo-300 bg-slate-50 p-6 ${gridClass}`}>
+                                    <div key={doctor.id} className={`flex flex-col border-2 border-dashed border-indigo-300 bg-slate-50 ${index === 2 ? '' : 'p-6'} ${gridClass}`}>
                                         {index === 2 ? (
                                             // Large doctor (index 2)
                                             <>
-                                                <div className="relative mb-4 h-64 w-full flex-1 bg-slate-200">
+                                                <div className="relative aspect-square w-full bg-slate-200">
                                                     {imageUrl && (
                                                         <img src={imageUrl} alt={doctor.title?.rendered} className="h-full w-full object-cover object-top" />
                                                     )}
                                                 </div>
-                                                <div>
+                                                <div className="p-8">
                                                     <h3 className="text-xl font-bold">{doctor.title?.rendered || __('No name', 'dentist-hybrid-theme')}</h3>
                                                     <p className="text-sm text-slate-500">{role}</p>
                                                 </div>
@@ -110,7 +110,7 @@ export default function Edit({ attributes, setAttributes }) {
                                         ) : index < 2 ? (
                                             // First two doctors
                                             <>
-                                                <div className="relative mb-6 aspect-square w-full overflow-hidden rounded-full bg-slate-200 md:aspect-auto md:h-64 md:w-full md:rounded-none">
+                                                <div className="relative mb-6 aspect-square w-full overflow-hidden rounded-full bg-slate-200 md:aspect-square md:w-full md:rounded-none">
                                                     {imageUrl && (
                                                         <img src={imageUrl} alt={doctor.title?.rendered} className="h-full w-full object-cover" />
                                                     )}

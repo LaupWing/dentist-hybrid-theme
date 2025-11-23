@@ -54,7 +54,7 @@ $doctors_query = new WP_Query([
         </div>
 
         <?php if ($doctors_query->have_posts()) : ?>
-            <div class="grid gap-8 md:grid-cols-4 md:grid-rows-2">
+            <div class="grid gap-8 md:grid-cols-4">
                 <?php
                 $index = 0;
                 while ($doctors_query->have_posts()) :
@@ -66,13 +66,13 @@ $doctors_query = new WP_Query([
                     $grid_class = '';
                     if ($index === 0) $grid_class = 'md:col-span-2';
                     elseif ($index === 1) $grid_class = 'md:col-span-2';
-                    elseif ($index === 2) $grid_class = 'md:col-span-2 md:row-span-2 md:h-full';
+                    elseif ($index === 2) $grid_class = 'md:col-span-2';
                 ?>
 
                     <?php if ($index === 2) : ?>
                         <!-- Large doctor (index 2) -->
                         <div class="flex flex-col bg-slate-50 <?php echo esc_attr($grid_class); ?>">
-                            <div class="relative h-64 w-full flex-1 bg-slate-200 md:h-auto">
+                            <div class="relative aspect-square w-full bg-slate-200">
                                 <?php if ($image_url) : ?>
                                     <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="h-full w-full object-cover object-top">
                                 <?php endif; ?>
@@ -88,7 +88,7 @@ $doctors_query = new WP_Query([
                     <?php elseif ($index < 2) : ?>
                         <!-- First two doctors -->
                         <div class="flex flex-col bg-slate-50 p-6 <?php echo esc_attr($grid_class); ?>">
-                            <div class="relative mb-6 aspect-square w-full overflow-hidden rounded-full bg-slate-200 md:aspect-auto md:h-64 md:w-full md:rounded-none">
+                            <div class="relative mb-6 aspect-square w-full overflow-hidden rounded-full bg-slate-200 md:aspect-square md:w-full md:rounded-none">
                                 <?php if ($image_url) : ?>
                                     <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" class="h-full w-full object-cover">
                                 <?php endif; ?>
