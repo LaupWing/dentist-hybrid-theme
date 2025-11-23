@@ -73,8 +73,8 @@ $icons = [
 
         <div class="grid gap-6 md:grid-cols-3">
             <?php foreach ($services as $service) : ?>
-                <div class="service-card group relative h-[420px] overflow-hidden bg-white text-slate-900">
-                    <div class="absolute inset-x-0 top-0 z-10 p-8">
+                <div class="service-card group flex flex-col overflow-hidden rounded-lg bg-white text-slate-900">
+                    <div class="p-8">
                         <div class="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-indigo-600">
                             <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <?php echo $icons[$service['icon']] ?? $icons['plus']; ?>
@@ -83,11 +83,11 @@ $icons = [
                         <h3 class="mb-2 text-xl font-bold"><?php echo esc_html($service['title']); ?></h3>
                         <p class="text-sm text-slate-500"><?php echo esc_html($service['description']); ?></p>
                     </div>
-                    <div class="service-card-image absolute inset-x-0 bottom-0 h-64 translate-y-12 transition-transform duration-500 group-hover:translate-y-0">
+                    <div class="service-card-image relative mt-auto h-64 flex-shrink-0 overflow-hidden">
                         <img
                             src="<?php echo esc_url($service['image']); ?>"
                             alt="<?php echo esc_attr($service['title']); ?>"
-                            class="h-full w-full object-cover"
+                            class="h-full w-full object-cover transition-all duration-500 group-hover:scale-105"
                         />
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 transition-opacity group-hover:opacity-100"></div>
                     </div>

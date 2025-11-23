@@ -146,19 +146,19 @@ export default function Edit({ attributes, setAttributes }) {
 
                     <div className="grid gap-6 md:grid-cols-3">
                         {services.map((service, i) => (
-                            <div key={i} className="group relative h-[420px] overflow-hidden bg-white text-slate-900">
-                                <div className="absolute inset-x-0 top-0 z-10 p-8">
+                            <div key={i} className="group flex flex-col overflow-hidden rounded-lg bg-white text-slate-900">
+                                <div className="p-8">
                                     <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-indigo-600">
                                         <IconSVG icon={service.icon} />
                                     </div>
                                     <h3 className="mb-2 text-xl font-bold">{service.title}</h3>
                                     <p className="text-sm text-slate-500">{service.description}</p>
                                 </div>
-                                <div className="absolute inset-x-0 bottom-0 h-64 translate-y-12 transition-transform duration-500 group-hover:translate-y-0">
+                                <div className="relative mt-auto h-64 flex-shrink-0 overflow-hidden">
                                     <img
                                         src={service.image}
                                         alt={service.title}
-                                        className="h-full w-full object-cover"
+                                        className="h-full w-full object-cover transition-all duration-500 group-hover:scale-105"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
                                 </div>
