@@ -221,12 +221,12 @@ function dentist_hybrid_register_doctor_cpt() {
     $args = array(
         'labels'                => $labels,
         'public'                => true,
-        'has_archive'           => true,
+        'has_archive'           => false,
         'publicly_queryable'    => true,
         'show_in_rest'          => true,
         'menu_icon'             => 'dashicons-admin-users',
         'supports'              => array('title', 'editor', 'thumbnail'),
-        'rewrite'               => array('slug' => 'doctors'),
+        'rewrite'               => array('slug' => 'doctor'),
     );
 
     register_post_type('doctor', $args);
@@ -473,12 +473,12 @@ function dentist_hybrid_register_service_cpt() {
     $args = array(
         'labels'                => $labels,
         'public'                => true,
-        'has_archive'           => true,
+        'has_archive'           => false,
         'publicly_queryable'    => true,
         'show_in_rest'          => true,
         'menu_icon'             => 'dashicons-heart',
         'supports'              => array('title', 'editor', 'thumbnail', 'excerpt'),
-        'rewrite'               => array('slug' => 'services'),
+        'rewrite'               => array('slug' => 'service'),
     );
 
     register_post_type('service', $args);
