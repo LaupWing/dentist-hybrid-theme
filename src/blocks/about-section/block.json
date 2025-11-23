@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "dentist-hybrid/about-section",
+  "title": "About Section",
+  "category": "design",
+  "icon": "groups",
+  "description": "About us section with heading, content, stats, and images.",
+  "keywords": ["about", "stats", "team"],
+  "textdomain": "dentist-hybrid-theme",
+  "editorScript": "file:./index.js",
+  "attributes": {
+    "sectionLabel": {
+      "type": "string",
+      "default": "About Us"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Passionate<br />About Your<br />Health"
+    },
+    "paragraph1": {
+      "type": "string",
+      "default": "At our dental clinic, we are deeply committed to your overall health and well-being. We believe that a healthy smile is a vital part of your quality of life. That's why our passionate team works tirelessly to provide personalized care tailored to your unique needs."
+    },
+    "paragraph2": {
+      "type": "string",
+      "default": "Our oral health is our priority. From routine check-ups to advanced procedures, we provide gentle, modern care in a warm, supportive setting."
+    },
+    "stats": {
+      "type": "array",
+      "default": [
+        {
+          "number": "95%",
+          "label": "Patient Satisfaction"
+        },
+        {
+          "number": "10k+",
+          "label": "Tooth Transformation"
+        },
+        {
+          "number": "99%",
+          "label": "Patient Success Rate"
+        }
+      ]
+    },
+    "image1": {
+      "type": "string",
+      "default": "https://images.unsplash.com/photo-1609840114035-3c981960a79e?w=800"
+    },
+    "image2": {
+      "type": "string",
+      "default": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800"
+    }
+  }
+}
