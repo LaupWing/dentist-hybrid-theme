@@ -34,6 +34,8 @@ $services_query = new WP_Query([
                 <?php while ($services_query->have_posts()) : $services_query->the_post(); ?>
                     <?php
                     $image_url = get_the_post_thumbnail_url(get_the_ID(), 'large');
+                    $icon = get_post_meta(get_the_ID(), '_service_icon', true) ?: 'plus';
+                    $icon_svg = dentist_hybrid_get_service_icon_svg($icon);
                     ?>
                     <a href="<?php echo esc_url(get_permalink()); ?>" class="group relative overflow-hidden rounded-lg bg-slate-50 transition-all hover:-translate-y-2">
                         <div class="relative h-64 w-full overflow-hidden">
@@ -44,7 +46,7 @@ $services_query = new WP_Query([
                             <?php endif; ?>
                             <div class="absolute top-4 left-4 flex h-12 w-12 items-center justify-center rounded-full bg-white text-indigo-600 shadow-lg">
                                 <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                    <?php echo $icon_svg; ?>
                                 </svg>
                             </div>
                         </div>

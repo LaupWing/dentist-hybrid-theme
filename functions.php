@@ -500,6 +500,7 @@ function dentist_hybrid_service_meta_box_callback($post) {
     wp_nonce_field('dentist_hybrid_save_service_meta', 'dentist_hybrid_service_nonce');
 
     $hero_description = get_post_meta($post->ID, '_service_hero_description', true);
+    $icon = get_post_meta($post->ID, '_service_icon', true);
     $overview_heading = get_post_meta($post->ID, '_service_overview_heading', true);
     $overview_text_1 = get_post_meta($post->ID, '_service_overview_text_1', true);
     $overview_text_2 = get_post_meta($post->ID, '_service_overview_text_2', true);
@@ -516,7 +517,24 @@ function dentist_hybrid_service_meta_box_callback($post) {
     $faqs = $faqs ? json_decode($faqs, true) : array();
     ?>
 
-    <h3 style="margin-top: 0;">Hero Section</h3>
+    <h3 style="margin-top: 0;">Service Icon</h3>
+    <p>
+        <label for="service_icon"><strong>Icon:</strong></label><br>
+        <select id="service_icon" name="service_icon" style="width: 100%; margin-top: 5px;">
+            <option value="tooth" <?php selected($icon, 'tooth'); ?>>🦷 Tooth (General Dental)</option>
+            <option value="sparkles" <?php selected($icon, 'sparkles'); ?>>✨ Sparkles (Whitening/Cosmetic)</option>
+            <option value="shield" <?php selected($icon, 'shield'); ?>>🛡️ Shield (Preventive)</option>
+            <option value="plus" <?php selected($icon, 'plus'); ?>>➕ Plus (General Care)</option>
+            <option value="heart" <?php selected($icon, 'heart'); ?>>❤️ Heart (Emergency Care)</option>
+            <option value="star" <?php selected($icon, 'star'); ?>>⭐ Star (Premium/Featured)</option>
+            <option value="smile" <?php selected($icon, 'smile'); ?>>😊 Smile (Cosmetic)</option>
+            <option value="stethoscope" <?php selected($icon, 'stethoscope'); ?>>🩺 Stethoscope (Medical/Surgery)</option>
+        </select>
+    </p>
+
+    <hr style="margin: 30px 0;">
+
+    <h3>Hero Section</h3>
     <p>
         <label for="service_hero_description"><strong>Hero Description:</strong></label><br>
         <textarea id="service_hero_description" name="service_hero_description" rows="3" style="width: 100%; margin-top: 5px;" placeholder="Transform your smile with our professional whitening treatments..."><?php echo esc_textarea($hero_description); ?></textarea>
@@ -616,6 +634,11 @@ function dentist_hybrid_save_service_meta($post_id) {
         update_post_meta($post_id, '_service_hero_description', sanitize_textarea_field($_POST['service_hero_description']));
     }
 
+    // Save icon
+    if (isset($_POST['service_icon'])) {
+        update_post_meta($post_id, '_service_icon', sanitize_text_field($_POST['service_icon']));
+    }
+
     // Save overview fields
     if (isset($_POST['service_overview_heading'])) {
         update_post_meta($post_id, '_service_overview_heading', sanitize_text_field($_POST['service_overview_heading']));
@@ -666,9 +689,31 @@ function dentist_hybrid_save_service_meta($post_id) {
 }
 add_action('save_post', 'dentist_hybrid_save_service_meta');
 
+// Get Service Icon SVG
+function dentist_hybrid_get_service_icon_svg($icon_name) {
+    $icons = array(
+        'tooth' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>',
+        'sparkles' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>',
+        'shield' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>',
+        'plus' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>',
+        'heart' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>',
+        'star' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>',
+        'smile' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>',
+        'stethoscope' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>'
+    );
+
+    return isset($icons[$icon_name]) ? $icons[$icon_name] : $icons['plus'];
+}
+
 // Expose service meta fields to REST API
 function dentist_hybrid_register_service_meta_rest() {
     register_post_meta('service', '_service_hero_description', array(
+        'show_in_rest' => true,
+        'single' => true,
+        'type' => 'string',
+    ));
+
+    register_post_meta('service', '_service_icon', array(
         'show_in_rest' => true,
         'single' => true,
         'type' => 'string',
