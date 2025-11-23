@@ -78,6 +78,9 @@ function dentist_hybrid_register_blocks() {
 
     // Register doctors-section block
     register_block_type(__DIR__ . '/build/blocks/doctors-section');
+
+    // Register page-header block
+    register_block_type(__DIR__ . '/build/blocks/page-header');
 }
 add_action('init', 'dentist_hybrid_register_blocks');
 

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "dentist-hybrid/page-header",
+  "title": "Page Header",
+  "category": "design",
+  "icon": "cover-image",
+  "description": "A page header with background image, heading, and optional description.",
+  "keywords": ["header", "hero", "banner"],
+  "textdomain": "dentist-hybrid-theme",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "attributes": {
+    "backgroundImage": {
+      "type": "string",
+      "default": ""
+    },
+    "heading": {
+      "type": "string",
+      "default": "Page Heading"
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+    "overlayStyle": {
+      "type": "string",
+      "default": "indigo"
+    },
+    "height": {
+      "type": "string",
+      "default": "60vh"
+    }
+  }
+}
