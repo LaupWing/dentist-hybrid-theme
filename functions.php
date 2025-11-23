@@ -87,6 +87,9 @@ function dentist_hybrid_register_blocks() {
 
     // Register services-grid block
     register_block_type(__DIR__ . '/build/blocks/services-grid');
+
+    // Register doctors-grid block
+    register_block_type(__DIR__ . '/build/blocks/doctors-grid');
 }
 add_action('init', 'dentist_hybrid_register_blocks');
 

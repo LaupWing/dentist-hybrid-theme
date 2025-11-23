@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "dentist-hybrid/doctors-grid",
+  "title": "Doctors Grid",
+  "category": "design",
+  "icon": "groups",
+  "description": "Display doctors in a grid layout.",
+  "keywords": ["doctors", "grid", "team"],
+  "textdomain": "dentist-hybrid-theme",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js",
+  "attributes": {
+    "sectionLabel": {
+      "type": "string",
+      "default": "Our Team"
+    },
+    "postsPerPage": {
+      "type": "number",
+      "default": 6
+    }
+  }
+}
