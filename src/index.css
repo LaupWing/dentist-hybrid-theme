@@ -12,6 +12,12 @@
   --font-body: system-ui, sans-serif;
 }
 
+/* Body Reset for Absolute Header */
+body {
+  margin: 0;
+  padding: 0;
+}
+
 /* WordPress Block Resets */
 .wp-block-group,
 .wp-block-cover,
