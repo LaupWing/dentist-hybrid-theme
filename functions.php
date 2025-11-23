@@ -28,3 +28,10 @@ function dentist_hybrid_setup() {
     add_theme_support('align-wide');
 }
 add_action('after_setup_theme', 'dentist_hybrid_setup');
+
+// Register Custom Blocks
+function dentist_hybrid_register_blocks() {
+    // Register hero-section block
+    register_block_type(__DIR__ . '/build/blocks/hero-section');
+}
+add_action('init', 'dentist_hybrid_register_blocks');
