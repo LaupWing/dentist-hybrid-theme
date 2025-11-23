@@ -440,3 +440,283 @@ function dentist_hybrid_register_doctor_meta_rest() {
     ));
 }
 add_action('init', 'dentist_hybrid_register_doctor_meta_rest');
+
+// Register Service Custom Post Type
+function dentist_hybrid_register_service_cpt() {
+    $labels = array(
+        'name'                  => 'Services',
+        'singular_name'         => 'Service',
+        'menu_name'             => 'Services',
+        'add_new'               => 'Add New',
+        'add_new_item'          => 'Add New Service',
+        'edit_item'             => 'Edit Service',
+        'new_item'              => 'New Service',
+        'view_item'             => 'View Service',
+        'search_items'          => 'Search Services',
+        'not_found'             => 'No services found',
+        'not_found_in_trash'    => 'No services found in trash',
+        'all_items'             => 'All Services',
+    );
+
+    $args = array(
+        'labels'                => $labels,
+        'public'                => true,
+        'has_archive'           => true,
+        'publicly_queryable'    => true,
+        'show_in_rest'          => true,
+        'menu_icon'             => 'dashicons-heart',
+        'supports'              => array('title', 'editor', 'thumbnail', 'excerpt'),
+        'rewrite'               => array('slug' => 'services'),
+    );
+
+    register_post_type('service', $args);
+}
+add_action('init', 'dentist_hybrid_register_service_cpt');
+
+// Add Custom Meta Box for Service Details
+function dentist_hybrid_add_service_meta_box() {
+    add_meta_box(
+        'service_details',
+        'Service Details',
+        'dentist_hybrid_service_meta_box_callback',
+        'service',
+        'normal',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'dentist_hybrid_add_service_meta_box');
+
+// Meta Box Callback for Service
+function dentist_hybrid_service_meta_box_callback($post) {
+    wp_nonce_field('dentist_hybrid_save_service_meta', 'dentist_hybrid_service_nonce');
+
+    $hero_description = get_post_meta($post->ID, '_service_hero_description', true);
+    $overview_heading = get_post_meta($post->ID, '_service_overview_heading', true);
+    $overview_text_1 = get_post_meta($post->ID, '_service_overview_text_1', true);
+    $overview_text_2 = get_post_meta($post->ID, '_service_overview_text_2', true);
+    $benefits = get_post_meta($post->ID, '_service_benefits', true);
+    $process_steps = get_post_meta($post->ID, '_service_process_steps', true);
+    $duration = get_post_meta($post->ID, '_service_duration', true);
+    $patient_count = get_post_meta($post->ID, '_service_patient_count', true);
+    $rating = get_post_meta($post->ID, '_service_rating', true);
+    $faqs = get_post_meta($post->ID, '_service_faqs', true);
+
+    // Decode JSON if stored
+    $benefits = $benefits ? json_decode($benefits, true) : array();
+    $process_steps = $process_steps ? json_decode($process_steps, true) : array();
+    $faqs = $faqs ? json_decode($faqs, true) : array();
+    ?>
+
+    <h3 style="margin-top: 0;">Hero Section</h3>
+    <p>
+        <label for="service_hero_description"><strong>Hero Description:</strong></label><br>
+        <textarea id="service_hero_description" name="service_hero_description" rows="3" style="width: 100%; margin-top: 5px;" placeholder="Transform your smile with our professional whitening treatments..."><?php echo esc_textarea($hero_description); ?></textarea>
+    </p>
+
+    <hr style="margin: 30px 0;">
+
+    <h3>Overview Section</h3>
+    <p>
+        <label for="service_overview_heading"><strong>Overview Heading:</strong></label><br>
+        <input type="text" id="service_overview_heading" name="service_overview_heading" value="<?php echo esc_attr($overview_heading); ?>" style="width: 100%; margin-top: 5px;" placeholder="Professional Grade Whitening">
+    </p>
+    <p>
+        <label for="service_overview_text_1"><strong>Overview Text - Paragraph 1:</strong></label><br>
+        <textarea id="service_overview_text_1" name="service_overview_text_1" rows="4" style="width: 100%; margin-top: 5px;" placeholder="First paragraph of service description..."><?php echo esc_textarea($overview_text_1); ?></textarea>
+    </p>
+    <p>
+        <label for="service_overview_text_2"><strong>Overview Text - Paragraph 2:</strong></label><br>
+        <textarea id="service_overview_text_2" name="service_overview_text_2" rows="4" style="width: 100%; margin-top: 5px;" placeholder="Second paragraph of service description..."><?php echo esc_textarea($overview_text_2); ?></textarea>
+    </p>
+    <p>
+        <label><strong>Benefits (one per line):</strong></label><br>
+        <textarea id="service_benefits" name="service_benefits" rows="6" style="width: 100%; margin-top: 5px;" placeholder="Safe for tooth enamel and gum tissue&#10;Results visible after just one session&#10;Long-lasting whitening effects"><?php
+            if (!empty($benefits)) {
+                echo esc_textarea(implode("\n", $benefits));
+            }
+        ?></textarea>
+        <small>Enter each benefit on a new line</small>
+    </p>
+
+    <hr style="margin: 30px 0;">
+
+    <h3>Treatment Process</h3>
+    <p>
+        <label><strong>Process Steps (JSON format):</strong></label><br>
+        <textarea id="service_process_steps" name="service_process_steps" rows="10" style="width: 100%; margin-top: 5px;" placeholder='[{"step":"01","title":"Consultation","description":"We assess your teeth..."}]'><?php
+            if (!empty($process_steps)) {
+                echo esc_textarea(json_encode($process_steps, JSON_PRETTY_PRINT));
+            }
+        ?></textarea>
+        <small>Enter as JSON array: [{"step":"01","title":"Consultation","description":"We assess your teeth and discuss your goals."}]</small>
+    </p>
+
+    <hr style="margin: 30px 0;">
+
+    <h3>Quick Facts</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px;">
+        <p>
+            <label for="service_duration"><strong>Duration:</strong></label><br>
+            <input type="text" id="service_duration" name="service_duration" value="<?php echo esc_attr($duration); ?>" style="width: 100%; margin-top: 5px;" placeholder="60-90 min">
+        </p>
+        <p>
+            <label for="service_patient_count"><strong>Happy Patients:</strong></label><br>
+            <input type="text" id="service_patient_count" name="service_patient_count" value="<?php echo esc_attr($patient_count); ?>" style="width: 100%; margin-top: 5px;" placeholder="5000+">
+        </p>
+        <p>
+            <label for="service_rating"><strong>Patient Rating:</strong></label><br>
+            <input type="text" id="service_rating" name="service_rating" value="<?php echo esc_attr($rating); ?>" style="width: 100%; margin-top: 5px;" placeholder="4.9/5">
+        </p>
+    </div>
+
+    <hr style="margin: 30px 0;">
+
+    <h3>FAQ Section</h3>
+    <p>
+        <label><strong>FAQs (JSON format):</strong></label><br>
+        <textarea id="service_faqs" name="service_faqs" rows="12" style="width: 100%; margin-top: 5px;" placeholder='[{"question":"How long do results last?","answer":"Results typically last 1-3 years..."}]'><?php
+            if (!empty($faqs)) {
+                echo esc_textarea(json_encode($faqs, JSON_PRETTY_PRINT));
+            }
+        ?></textarea>
+        <small>Enter as JSON array: [{"question":"How long do whitening results last?","answer":"Results typically last 1-3 years depending on your diet and oral care habits."}]</small>
+    </p>
+    <?php
+}
+
+// Save Meta Box Data for Service
+function dentist_hybrid_save_service_meta($post_id) {
+    if (!isset($_POST['dentist_hybrid_service_nonce'])) {
+        return;
+    }
+
+    if (!wp_verify_nonce($_POST['dentist_hybrid_service_nonce'], 'dentist_hybrid_save_service_meta')) {
+        return;
+    }
+
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+
+    // Save hero description
+    if (isset($_POST['service_hero_description'])) {
+        update_post_meta($post_id, '_service_hero_description', sanitize_textarea_field($_POST['service_hero_description']));
+    }
+
+    // Save overview fields
+    if (isset($_POST['service_overview_heading'])) {
+        update_post_meta($post_id, '_service_overview_heading', sanitize_text_field($_POST['service_overview_heading']));
+    }
+
+    if (isset($_POST['service_overview_text_1'])) {
+        update_post_meta($post_id, '_service_overview_text_1', sanitize_textarea_field($_POST['service_overview_text_1']));
+    }
+
+    if (isset($_POST['service_overview_text_2'])) {
+        update_post_meta($post_id, '_service_overview_text_2', sanitize_textarea_field($_POST['service_overview_text_2']));
+    }
+
+    // Save benefits (convert lines to array and encode as JSON)
+    if (isset($_POST['service_benefits'])) {
+        $benefits = array_filter(array_map('trim', explode("\n", $_POST['service_benefits'])));
+        update_post_meta($post_id, '_service_benefits', json_encode(array_values($benefits)));
+    }
+
+    // Save process steps (validate JSON and save)
+    if (isset($_POST['service_process_steps'])) {
+        $process_steps = json_decode(stripslashes($_POST['service_process_steps']), true);
+        if (json_last_error() === JSON_ERROR_NONE && is_array($process_steps)) {
+            update_post_meta($post_id, '_service_process_steps', json_encode($process_steps));
+        }
+    }
+
+    // Save quick facts
+    if (isset($_POST['service_duration'])) {
+        update_post_meta($post_id, '_service_duration', sanitize_text_field($_POST['service_duration']));
+    }
+
+    if (isset($_POST['service_patient_count'])) {
+        update_post_meta($post_id, '_service_patient_count', sanitize_text_field($_POST['service_patient_count']));
+    }
+
+    if (isset($_POST['service_rating'])) {
+        update_post_meta($post_id, '_service_rating', sanitize_text_field($_POST['service_rating']));
+    }
+
+    // Save FAQs (validate JSON and save)
+    if (isset($_POST['service_faqs'])) {
+        $faqs = json_decode(stripslashes($_POST['service_faqs']), true);
+        if (json_last_error() === JSON_ERROR_NONE && is_array($faqs)) {
+            update_post_meta($post_id, '_service_faqs', json_encode($faqs));
+        }
+    }
+}
+add_action('save_post', 'dentist_hybrid_save_service_meta');
+
+// Expose service meta fields to REST API
+function dentist_hybrid_register_service_meta_rest() {
+    register_post_meta('service', '_service_hero_description', array(
+        'show_in_rest' => true,
+        'single' => true,
+        'type' => 'string',
+    ));
+
+    register_post_meta('service', '_service_overview_heading', array(
+        'show_in_rest' => true,
+        'single' => true,
+        'type' => 'string',
+    ));
+
+    register_post_meta('service', '_service_overview_text_1', array(
+        'show_in_rest' => true,
+        'single' => true,
+        'type' => 'string',
+    ));
+
+    register_post_meta('service', '_service_overview_text_2', array(
+        'show_in_rest' => true,
+        'single' => true,
+        'type' => 'string',
+    ));
+
+    register_post_meta('service', '_service_benefits', array(
+        'show_in_rest' => true,
+        'single' => true,
+        'type' => 'string',
+    ));
+
+    register_post_meta('service', '_service_process_steps', array(
+        'show_in_rest' => true,
+        'single' => true,
+        'type' => 'string',
+    ));
+
+    register_post_meta('service', '_service_duration', array(
+        'show_in_rest' => true,
+        'single' => true,
+        'type' => 'string',
+    ));
+
+    register_post_meta('service', '_service_patient_count', array(
+        'show_in_rest' => true,
+        'single' => true,
+        'type' => 'string',
+    ));
+
+    register_post_meta('service', '_service_rating', array(
+        'show_in_rest' => true,
+        'single' => true,
+        'type' => 'string',
+    ));
+
+    register_post_meta('service', '_service_faqs', array(
+        'show_in_rest' => true,
+        'single' => true,
+        'type' => 'string',
+    ));
+}
+add_action('init', 'dentist_hybrid_register_service_meta_rest');
