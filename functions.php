@@ -50,5 +50,8 @@ add_action('enqueue_block_editor_assets', 'dentist_hybrid_enqueue_editor_assets'
 function dentist_hybrid_register_blocks() {
     // Register hero-section block
     register_block_type(__DIR__ . '/build/blocks/hero-section');
+
+    // Register about-section block
+    register_block_type(__DIR__ . '/build/blocks/about-section');
 }
 add_action('init', 'dentist_hybrid_register_blocks');
