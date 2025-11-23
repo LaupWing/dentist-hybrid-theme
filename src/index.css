@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Theme Configuration */
+@theme {
+  /* Brand Colors */
+  --color-primary: #0ea5e9;
+  --color-secondary: #64748b;
+
+  /* Typography */
+  --font-heading: system-ui, sans-serif;
+  --font-body: system-ui, sans-serif;
+}
+
+/* WordPress Block Resets */
+.wp-block-group,
+.wp-block-cover,
+.wp-block-buttons,
+.wp-block-button,
+.wp-site-blocks {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.wp-block-button__link {
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  color: inherit !important;
+}
