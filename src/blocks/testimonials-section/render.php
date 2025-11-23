@@ -62,7 +62,7 @@ $unique_id = 'testimonials-' . uniqid();
                             $is_active = $index === 0 ? 'active' : '';
                         ?>
                             <div class="testimonial-slide <?php echo esc_attr($is_active); ?>" data-index="<?php echo esc_attr($index); ?>">
-                                <div class="mb-12 text-2xl font-medium leading-relaxed text-slate-800 md:text-3xl">
+                                <div class="mb-12 text-lg font-medium leading-relaxed text-slate-800 md:text-2xl lg:text-3xl">
                                     "<?php echo wp_kses_post(get_the_content()); ?>"
                                 </div>
 

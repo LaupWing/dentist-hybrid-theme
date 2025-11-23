@@ -68,7 +68,7 @@ export default function Edit({ attributes, setAttributes }) {
 
                                 return (
                                     <div key={testimonial.id} className="relative border-2 border-dashed border-indigo-300 bg-white p-8 rounded-lg">
-                                        <div className="mb-8 text-2xl font-medium leading-relaxed text-slate-800 md:text-3xl">
+                                        <div className="mb-8 text-lg font-medium leading-relaxed text-slate-800 md:text-2xl lg:text-3xl">
                                             "{testimonial.content?.rendered ? (
                                                 <span dangerouslySetInnerHTML={{ __html: testimonial.content.rendered.replace(/<\/?p>/g, '') }} />
                                             ) : (
