@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "dentist-hybrid/doctors-section",
+  "version": "1.0.0",
+  "title": "Doctors Section",
+  "category": "theme",
+  "icon": "admin-users",
+  "description": "Display specialist doctors in a grid layout",
+  "keywords": ["doctors", "team", "specialists"],
+  "textdomain": "dentist-hybrid-theme",
+  "attributes": {
+    "sectionLabel": {
+      "type": "string",
+      "default": "Specialist Doctor"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Caring Hands,<br />Professional Dental<br />Expertise"
+    },
+    "description": {
+      "type": "string",
+      "default": "Our compassionate team combines caring hands with professional dental expertise to provide gentle, effective treatments for your healthiest smile."
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Book Now"
+    },
+    "buttonLink": {
+      "type": "string",
+      "default": "/contact"
+    }
+  },
+  "supports": {
+    "align": false,
+    "html": false
+  },
+  "editorScript": "file:./index.js",
+  "viewScript": "file:./view.js",
+  "render": "file:./render.php"
+}

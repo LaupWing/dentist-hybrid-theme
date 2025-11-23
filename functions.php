@@ -75,6 +75,9 @@ function dentist_hybrid_register_blocks() {
 
     // Register testimonials-section block
     register_block_type(__DIR__ . '/build/blocks/testimonials-section');
+
+    // Register doctors-section block
+    register_block_type(__DIR__ . '/build/blocks/doctors-section');
 }
 add_action('init', 'dentist_hybrid_register_blocks');
 
