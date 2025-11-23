@@ -84,6 +84,9 @@ function dentist_hybrid_register_blocks() {
 
     // Register page-header block
     register_block_type(__DIR__ . '/build/blocks/page-header');
+
+    // Register services-grid block
+    register_block_type(__DIR__ . '/build/blocks/services-grid');
 }
 add_action('init', 'dentist_hybrid_register_blocks');
 

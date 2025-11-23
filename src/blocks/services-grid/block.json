@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "dentist-hybrid/services-grid",
+  "title": "Services Grid",
+  "category": "design",
+  "icon": "grid-view",
+  "description": "Display services in a grid layout.",
+  "keywords": ["services", "grid", "treatments"],
+  "textdomain": "dentist-hybrid-theme",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js",
+  "attributes": {
+    "sectionLabel": {
+      "type": "string",
+      "default": "All Treatments"
+    },
+    "postsPerPage": {
+      "type": "number",
+      "default": 6
+    }
+  }
+}
