@@ -917,16 +917,31 @@ function dentist_hybrid_get_post_doctor($post_id) {
     );
 }
 
-// Add pagination support to posts page
-function dentist_hybrid_posts_page_pagination() {
-    // Add rewrite rule for blog/page/X
-    add_rewrite_rule(
-        'blog/page/([0-9]+)/?$',
-        'index.php?pagename=blog&paged=$matches[1]',
-        'top'
-    );
-}
-add_action('init', 'dentist_hybrid_posts_page_pagination');
+// Blog Pagination - Nuclear Option
+add_action('template_redirect', function() {
+    global $wp_query;
+
+    // Check if we're hitting a 404 that looks like blog pagination
+    if ($wp_query->is_404) {
+        $url = $_SERVER['REQUEST_URI'];
+        if (preg_match('#/blog/page/([0-9]+)/?$#', $url, $matches)) {
+            $page_num = intval($matches[1]);
+
+            // Override the 404
+            $wp_query->is_404 = false;
+            $wp_query->is_home = true;
+            status_header(200);
+
+            // Set pagination
+            set_query_var('paged', $page_num);
+            $wp_query->query_vars['paged'] = $page_num;
+
+            // Load the home template
+            include(get_template_directory() . '/home.php');
+            exit;
+        }
+    }
+}, 1);
 
 // Handle Contact Form Submission
 function dentist_hybrid_handle_contact_form() {
