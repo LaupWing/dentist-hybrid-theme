@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "dentist-hybrid/cta-section",
+  "title": "CTA Section",
+  "category": "design",
+  "icon": "megaphone",
+  "description": "A call-to-action section with heading and two button options.",
+  "keywords": ["cta", "call to action", "buttons"],
+  "textdomain": "dentist-hybrid-theme",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "Ready for a<br />Brighter Smile?"
+    },
+    "primaryButtonText": {
+      "type": "string",
+      "default": "Book Appointment"
+    },
+    "primaryButtonUrl": {
+      "type": "string",
+      "default": "/contact"
+    },
+    "secondaryButtonText": {
+      "type": "string",
+      "default": "Meet Our Team"
+    },
+    "secondaryButtonUrl": {
+      "type": "string",
+      "default": "/doctors"
+    }
+  }
+}

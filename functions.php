@@ -90,6 +90,9 @@ function dentist_hybrid_register_blocks() {
 
     // Register doctors-grid block
     register_block_type(__DIR__ . '/build/blocks/doctors-grid');
+
+    // Register cta-section block
+    register_block_type(__DIR__ . '/build/blocks/cta-section');
 }
 add_action('init', 'dentist_hybrid_register_blocks');
 
