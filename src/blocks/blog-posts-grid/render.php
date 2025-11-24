@@ -11,7 +11,8 @@
 $posts_per_page = $attributes['postsPerPage'] ?? get_option('posts_per_page', 9);
 
 // Get current page for pagination
-$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+// Check both 'paged' and 'page' query vars (page is used on static front page)
+$paged = (get_query_var('paged')) ? get_query_var('paged') : ((get_query_var('page')) ? get_query_var('page') : 1);
 
 // Fetch posts with pagination
 $blog_posts = new WP_Query(array(
@@ -131,22 +132,33 @@ $post_index = 0;
                 <nav class="mt-16 flex justify-center" aria-label="Blog Pagination">
                     <div class="inline-flex items-center gap-2 bg-white p-2 shadow-sm">
                         <?php
+                        // Get base URL for pagination
+                        $posts_page_id = get_option('page_for_posts');
+                        $base_url = $posts_page_id ? get_permalink($posts_page_id) : home_url('/blog/');
+
                         // Previous button
-                        if (get_previous_posts_link()) : ?>
-                            <div class="previous">
-                                <?php previous_posts_link('<span class="inline-flex items-center gap-2 px-4 py-2 text-sm font-bold uppercase tracking-wider text-slate-700 transition-colors hover:text-indigo-600"><svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg> Vorige</span>'); ?>
-                            </div>
+                        if ($paged > 1) :
+                            $prev_page = $paged - 1;
+                            $prev_url = ($prev_page == 1) ? $base_url : trailingslashit($base_url) . 'page/' . $prev_page . '/';
+                        ?>
+                            <a href="<?php echo esc_url($prev_url); ?>" class="inline-flex items-center gap-2 px-4 py-2 text-sm font-bold uppercase tracking-wider text-slate-700 transition-colors hover:text-indigo-600">
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                </svg>
+                                Vorige
+                            </a>
                         <?php endif; ?>
 
                         <?php
                         // Page numbers
                         for ($i = 1; $i <= $blog_posts->max_num_pages; $i++) :
+                            $page_url = ($i == 1) ? $base_url : trailingslashit($base_url) . 'page/' . $i . '/';
                             if ($i == $paged) : ?>
                                 <span class="inline-flex h-10 w-10 items-center justify-center bg-indigo-900 font-bold text-white">
                                     <?php echo $i; ?>
                                 </span>
                             <?php else : ?>
-                                <a href="<?php echo get_pagenum_link($i); ?>" class="inline-flex h-10 w-10 items-center justify-center font-bold text-slate-600 transition-colors hover:bg-slate-100 hover:text-indigo-900">
+                                <a href="<?php echo esc_url($page_url); ?>" class="inline-flex h-10 w-10 items-center justify-center font-bold text-slate-600 transition-colors hover:bg-slate-100 hover:text-indigo-900">
                                     <?php echo $i; ?>
                                 </a>
                             <?php endif;
@@ -155,10 +167,16 @@ $post_index = 0;
 
                         <?php
                         // Next button
-                        if (get_next_posts_link('', $blog_posts->max_num_pages)) : ?>
-                            <div class="next">
-                                <?php next_posts_link('<span class="inline-flex items-center gap-2 px-4 py-2 text-sm font-bold uppercase tracking-wider text-slate-700 transition-colors hover:text-indigo-600">Volgende <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>', $blog_posts->max_num_pages); ?>
-                            </div>
+                        if ($paged < $blog_posts->max_num_pages) :
+                            $next_page = $paged + 1;
+                            $next_url = trailingslashit($base_url) . 'page/' . $next_page . '/';
+                        ?>
+                            <a href="<?php echo esc_url($next_url); ?>" class="inline-flex items-center gap-2 px-4 py-2 text-sm font-bold uppercase tracking-wider text-slate-700 transition-colors hover:text-indigo-600">
+                                Volgende
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
                         <?php endif; ?>
                     </div>
                 </nav>

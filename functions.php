@@ -917,6 +917,17 @@ function dentist_hybrid_get_post_doctor($post_id) {
     );
 }
 
+// Add pagination support to posts page
+function dentist_hybrid_posts_page_pagination() {
+    // Add rewrite rule for blog/page/X
+    add_rewrite_rule(
+        'blog/page/([0-9]+)/?$',
+        'index.php?pagename=blog&paged=$matches[1]',
+        'top'
+    );
+}
+add_action('init', 'dentist_hybrid_posts_page_pagination');
+
 // Handle Contact Form Submission
 function dentist_hybrid_handle_contact_form() {
     // Verify nonce
