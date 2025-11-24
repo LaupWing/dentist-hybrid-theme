@@ -6,7 +6,7 @@
 // Disable WordPress Admin Bar on Frontend
 add_filter('show_admin_bar', '__return_false');
 
-// Enqueue Tailwind CSS
+// Enqueue Tailwind CSS and Scripts
 function dentist_hybrid_enqueue_styles() {
     // Enqueue Oswald font from Google Fonts with font-display: swap
     // Load asynchronously to prevent render blocking
@@ -26,6 +26,18 @@ function dentist_hybrid_enqueue_styles() {
         get_theme_file_uri('build/index.css'),
         array(),
         $version
+    );
+
+    // Enqueue fade-in animation script
+    $js_file = get_theme_file_path('build/fade-in-animation.js');
+    $js_version = file_exists($js_file) ? filemtime($js_file) : '1.0.0';
+
+    wp_enqueue_script(
+        'dentist-hybrid-fade-in',
+        get_theme_file_uri('build/fade-in-animation.js'),
+        array(),
+        $js_version,
+        true // Load in footer
     );
 }
 add_action('wp_enqueue_scripts', 'dentist_hybrid_enqueue_styles');

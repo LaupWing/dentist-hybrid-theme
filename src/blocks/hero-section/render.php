@@ -61,7 +61,7 @@ $icons = [
                 <?php echo wp_kses_post($description); ?>
             </p>
 
-            <div class="flex flex-wrap gap-4">
+            <div data-id class="flex flex-wrap gap-4">
                 <a
                     href="<?php echo esc_url($primary_button_url); ?>"
                     class="rounded-full bg-[#a3e635] px-8 py-4 text-sm font-bold uppercase tracking-wider text-black transition-transform hover:scale-105 inline-flex items-center gap-2">

@@ -56,3 +56,52 @@ body {
   padding: 0 !important;
   color: inherit !important;
 }
+
+/* Fade-in Animation System */
+[data-id] {
+  @apply translate-y-10 opacity-0 transition duration-300 ease-out motion-reduce:translate-y-0 motion-reduce:opacity-100;
+}
+
+.fade-in-start [data-id] {
+  @apply translate-y-0 opacity-100;
+}
+
+.fade-in-start [data-id="1"] {
+  transition-delay: 100ms;
+}
+
+.fade-in-start [data-id="2"] {
+  transition-delay: 200ms;
+}
+
+.fade-in-start [data-id="3"] {
+  transition-delay: 300ms;
+}
+
+.fade-in-start [data-id="4"] {
+  transition-delay: 400ms;
+}
+
+.fade-in-start [data-id="5"] {
+  transition-delay: 500ms;
+}
+
+.fade-in-start [data-id="6"] {
+  transition-delay: 600ms;
+}
+
+.fade-in-start [data-id="7"] {
+  transition-delay: 700ms;
+}
+
+.fade-in-start [data-id="8"] {
+  transition-delay: 800ms;
+}
+
+.fade-in-start [data-id="9"] {
+  transition-delay: 900ms;
+}
+
+.fade-in-start [data-id="10"] {
+  transition-delay: 1000ms;
+}
