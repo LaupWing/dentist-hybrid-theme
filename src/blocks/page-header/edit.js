@@ -24,6 +24,12 @@ export default function Edit({ attributes, setAttributes }) {
             opacity: 'opacity-50',
             gradient: 'from-[#f0efe9] via-black/50',
             textColor: 'text-white'
+        },
+        light: {
+            bg: 'bg-slate-900',
+            opacity: 'opacity-60',
+            gradient: 'from-white via-transparent',
+            textColor: 'text-slate-900'
         }
     };
 
@@ -60,6 +66,7 @@ export default function Edit({ attributes, setAttributes }) {
                             { label: 'Indigo (Services)', value: 'indigo' },
                             { label: 'Slate (Doctors)', value: 'slate' },
                             { label: 'Dark (Blog)', value: 'dark' },
+                            { label: 'Light (Contact)', value: 'light' },
                         ]}
                         onChange={(value) => setAttributes({ overlayStyle: value })}
                     />

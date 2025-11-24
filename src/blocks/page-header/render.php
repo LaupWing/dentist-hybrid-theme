@@ -32,6 +32,12 @@ $overlay_styles = array(
         'opacity' => 'opacity-50',
         'gradient' => 'from-[#f0efe9] via-black/50',
         'text_color' => 'text-white'
+    ),
+    'light' => array(
+        'bg' => 'bg-slate-900',
+        'opacity' => 'opacity-60',
+        'gradient' => 'from-white via-transparent',
+        'text_color' => 'text-slate-900'
     )
 );
 
