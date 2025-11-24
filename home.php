@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Blog Archive Page Template - Using Main Query
  */
@@ -18,11 +19,15 @@ $post_index = 0;
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 ?>
 
+<?php if ($paged > 1) : ?>
+    <div class="py-6 bg-[#f0efe9]"></div>
+<?php endif; ?>
+
 <section class="bg-[#f0efe9] py-24">
     <div class="container mx-auto px-6">
         <div class="mb-12 flex items-center gap-4">
             <span class="whitespace-nowrap text-xs font-bold uppercase tracking-widest text-slate-500">
-                Alle Artikelen
+                Alle Artikelen<?php if ($paged > 1) echo ' (Pagina ' . $paged . ')'; ?>
             </span>
             <div class="h-[2px] w-full bg-slate-300"></div>
         </div>
@@ -152,7 +157,7 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                                 <a href="<?php echo esc_url($page_url); ?>" class="inline-flex h-10 w-10 items-center justify-center font-bold text-slate-600 transition-colors hover:bg-slate-100 hover:text-indigo-900">
                                     <?php echo $i; ?>
                                 </a>
-                            <?php endif;
+                        <?php endif;
                         endfor;
                         ?>
 
