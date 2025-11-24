@@ -939,8 +939,17 @@ function dentist_hybrid_handle_contact_form() {
     $name = sanitize_text_field($_POST['name']);
     $phone = sanitize_text_field($_POST['phone']);
     $email = sanitize_email($_POST['email']);
-    $service = sanitize_text_field($_POST['service']);
+    $service_id = absint($_POST['service']);
     $message = sanitize_textarea_field($_POST['message']);
+
+    // Get service name from ID
+    $service_name = 'Niet gespecificeerd';
+    if ($service_id) {
+        $service_post = get_post($service_id);
+        if ($service_post && $service_post->post_type === 'service') {
+            $service_name = $service_post->post_title;
+        }
+    }
 
     // Get admin email
     $to = get_option('admin_email');
@@ -951,7 +960,7 @@ function dentist_hybrid_handle_contact_form() {
     $body .= "Name: $name\n";
     $body .= "Phone: $phone\n";
     $body .= "Email: $email\n";
-    $body .= "Service: $service\n";
+    $body .= "Service: $service_name\n";
     $body .= "Message: $message\n";
 
     $headers = array('Content-Type: text/plain; charset=UTF-8');

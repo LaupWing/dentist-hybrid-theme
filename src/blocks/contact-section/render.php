@@ -97,10 +97,26 @@ $form_shortcode = $attributes['formShortcode'] ?? '';
                                 class="w-full border-b-2 border-slate-200 bg-transparent px-0 py-3 outline-none transition-colors focus:border-indigo-600"
                             >
                                 <option value="">Selecteer een behandeling</option>
-                                <option value="checkup">Routinecontrole</option>
-                                <option value="cleaning">Reiniging</option>
-                                <option value="whitening">Tandbleking</option>
-                                <option value="emergency">Spoedeisend</option>
+                                <?php
+                                // Fetch all services dynamically
+                                $services = new WP_Query(array(
+                                    'post_type' => 'service',
+                                    'posts_per_page' => -1,
+                                    'orderby' => 'title',
+                                    'order' => 'ASC',
+                                    'post_status' => 'publish',
+                                ));
+
+                                if ($services->have_posts()) :
+                                    while ($services->have_posts()) : $services->the_post();
+                                        ?>
+                                        <option value="<?php echo esc_attr(get_the_ID()); ?>">
+                                            <?php echo esc_html(get_the_title()); ?>
+                                        </option>
+                                    <?php endwhile;
+                                    wp_reset_postdata();
+                                endif;
+                                ?>
                             </select>
                         </div>
 
