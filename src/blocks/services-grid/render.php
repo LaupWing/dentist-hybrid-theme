@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Services Grid Block Template
  *
@@ -20,9 +21,9 @@ $services_query = new WP_Query([
 ]);
 ?>
 
-<section <?php echo get_block_wrapper_attributes(['class' => 'py-24']); ?>>
+<section data-id <?php echo get_block_wrapper_attributes(['class' => 'py-24']); ?>>
     <div class="container mx-auto">
-        <div class="mb-12 flex items-center gap-4">
+        <div data-id class="mb-12 flex items-center gap-4">
             <span class="whitespace-nowrap text-xs font-bold uppercase tracking-widest text-slate-500">
                 <?php echo esc_html($section_label); ?>
             </span>
@@ -30,7 +31,7 @@ $services_query = new WP_Query([
         </div>
 
         <?php if ($services_query->have_posts()) : ?>
-            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div data-id class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 <?php while ($services_query->have_posts()) : $services_query->the_post(); ?>
                     <?php
                     $image_url = get_the_post_thumbnail_url(get_the_ID(), 'large');

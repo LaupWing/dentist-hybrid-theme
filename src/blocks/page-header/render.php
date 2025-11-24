@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Page Header Block Template
  *
@@ -44,10 +45,10 @@ $overlay_styles = array(
 $current_style = $overlay_styles[$overlay_style];
 ?>
 
-<section <?php echo get_block_wrapper_attributes([
-    'class' => 'relative w-full overflow-hidden ' . $current_style['bg'] . ' pt-24 text-white',
-    'style' => 'height: ' . esc_attr($height)
-]); ?>>
+<section data-id <?php echo get_block_wrapper_attributes([
+                        'class' => 'relative w-full overflow-hidden ' . $current_style['bg'] . ' pt-24 text-white',
+                        'style' => 'height: ' . esc_attr($height)
+                    ]); ?>>
     <?php if ($background_image) : ?>
         <div class="absolute inset-0 z-0 <?php echo esc_attr($current_style['opacity']); ?>">
             <img src="<?php echo esc_url($background_image); ?>" alt="" class="h-full w-full object-cover">
@@ -56,11 +57,11 @@ $current_style = $overlay_styles[$overlay_style];
     <?php endif; ?>
 
     <div class="container relative z-10 mx-auto flex h-full flex-col justify-center">
-        <h1 class="font-oswald mb-6 text-6xl font-bold uppercase leading-none tracking-tight md:text-8xl">
+        <h1 data-id class="font-oswald mb-6 text-6xl font-bold uppercase leading-none tracking-tight md:text-8xl">
             <?php echo wp_kses_post($heading); ?>
         </h1>
         <?php if ($description) : ?>
-            <p class="max-w-xl text-xl <?php echo esc_attr($current_style['text_color']); ?>">
+            <p data-id class="max-w-xl text-xl <?php echo esc_attr($current_style['text_color']); ?>">
                 <?php echo wp_kses_post($description); ?>
             </p>
         <?php endif; ?>

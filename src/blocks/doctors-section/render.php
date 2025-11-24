@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Doctors Section Block Template
  *
@@ -24,16 +25,16 @@ $doctors_query = new WP_Query([
 ]);
 ?>
 
-<section <?php echo get_block_wrapper_attributes(['class' => 'py-24']); ?>>
+<section data-id <?php echo get_block_wrapper_attributes(['class' => 'py-24']); ?>>
     <div class="container mx-auto">
-        <div class="mb-8 flex items-center gap-4">
+        <div data-id class="mb-8 flex items-center gap-4">
             <span class="whitespace-nowrap text-xs font-bold uppercase tracking-widest text-slate-500">
                 <?php echo esc_html($section_label); ?>
             </span>
             <div class="h-[2px] w-full bg-slate-300"></div>
         </div>
 
-        <div class="mb-16 grid gap-12 lg:grid-cols-2">
+        <div data-id class="mb-16 grid gap-12 lg:grid-cols-2">
             <h2 class="font-oswald text-5xl font-bold uppercase leading-none tracking-tight text-[#4338ca] md:text-6xl">
                 <?php echo wp_kses_post($heading); ?>
             </h2>
@@ -43,8 +44,7 @@ $doctors_query = new WP_Query([
                 </p>
                 <a
                     href="<?php echo esc_url($button_link); ?>"
-                    class="rounded-full bg-[#a3e635] px-8 py-4 text-sm font-bold uppercase tracking-wider text-black transition-transform hover:scale-105"
-                >
+                    class="rounded-full bg-[#a3e635] px-8 py-4 text-sm font-bold uppercase tracking-wider text-black transition-transform hover:scale-105">
                     <?php echo esc_html($button_text); ?>
                     <svg class="ml-2 inline h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
