@@ -9,11 +9,13 @@ add_filter('show_admin_bar', '__return_false');
 // Enqueue Tailwind CSS
 function dentist_hybrid_enqueue_styles() {
     // Enqueue Oswald font from Google Fonts with font-display: swap
+    // Load asynchronously to prevent render blocking
     wp_enqueue_style(
         'dentist-hybrid-oswald-font',
         'https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap',
         array(),
-        null
+        null,
+        'all'
     );
 
     $css_file = get_theme_file_path('build/index.css');
@@ -22,11 +24,20 @@ function dentist_hybrid_enqueue_styles() {
     wp_enqueue_style(
         'dentist-hybrid-tailwind',
         get_theme_file_uri('build/index.css'),
-        array('dentist-hybrid-oswald-font'),
+        array(),
         $version
     );
 }
 add_action('wp_enqueue_scripts', 'dentist_hybrid_enqueue_styles');
+
+// Add async/defer attributes to font stylesheet
+function dentist_hybrid_add_font_attributes($html, $handle) {
+    if ($handle === 'dentist-hybrid-oswald-font') {
+        return str_replace("rel='stylesheet'", "rel='stylesheet' media='print' onload=\"this.media='all'\"", $html);
+    }
+    return $html;
+}
+add_filter('style_loader_tag', 'dentist_hybrid_add_font_attributes', 10, 2);
 
 // Theme Setup
 function dentist_hybrid_setup() {
@@ -42,25 +53,6 @@ function dentist_hybrid_setup() {
     add_editor_style('build/index.css');
 }
 add_action('after_setup_theme', 'dentist_hybrid_setup');
-
-// Add Meta Description Support
-function dentist_hybrid_add_meta_description() {
-    if (is_singular()) {
-        global $post;
-        $description = get_post_meta($post->ID, '_meta_description', true);
-
-        if (empty($description)) {
-            $description = wp_trim_words(strip_tags($post->post_content), 30, '...');
-        }
-
-        if (!empty($description)) {
-            echo '<meta name="description" content="' . esc_attr($description) . '">' . "\n";
-        }
-    } elseif (is_home() || is_front_page()) {
-        echo '<meta name="description" content="' . esc_attr(get_bloginfo('description')) . '">' . "\n";
-    }
-}
-add_action('wp_head', 'dentist_hybrid_add_meta_description', 1);
 
 // Add Browser Caching Headers
 function dentist_hybrid_add_cache_headers() {

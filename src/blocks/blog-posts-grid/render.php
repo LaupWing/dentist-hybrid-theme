@@ -105,7 +105,7 @@ $post_index = 0;
                                         </div>
                                     <?php endif; ?>
                                 </div>
-                                <div class="mb-4 flex items-center gap-4 text-xs font-bold uppercase tracking-wider text-slate-400">
+                                <div class="mb-4 flex items-center gap-4 text-xs font-bold uppercase tracking-wider text-slate-500">
                                     <span><?php echo get_the_date('M j, Y'); ?></span>
                                 </div>
                                 <h3 class="font-oswald mb-3 text-2xl font-bold uppercase leading-tight text-slate-900 group-hover:text-indigo-600">

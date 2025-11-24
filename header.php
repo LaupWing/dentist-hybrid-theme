@@ -5,6 +5,29 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <?php
+    // Meta Description
+    $description = '';
+
+    // Check front page FIRST (homepage can be both singular AND front_page)
+    if (is_front_page() || is_home()) {
+        $description = get_bloginfo('description');
+    } elseif (is_singular()) {
+        global $post;
+        $description = get_post_meta($post->ID, '_meta_description', true);
+        if (empty($description) && !empty($post->post_content)) {
+            $description = wp_trim_words(strip_tags($post->post_content), 30, '...');
+        }
+    }
+
+    // Fallback if still empty
+    if (empty($description)) {
+        $description = 'Professionele tandheelkundige zorg in Amsterdam. Pijnloze behandelingen voor een gezonde glimlach.';
+    }
+
+    echo '<meta name="description" content="' . esc_attr($description) . '">' . "\n";
+    ?>
+
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,8 +75,8 @@
             </div>
 
             <!-- Mobile Menu Button Right -->
-            <label for="mobile-menu-toggle" class="flex cursor-pointer items-center rounded p-1 text-slate-900 hover:bg-slate-100 md:hidden">
-                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <label for="mobile-menu-toggle" class="flex cursor-pointer items-center rounded p-1 text-slate-900 hover:bg-slate-100 md:hidden" aria-label="Open menu">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </label>
