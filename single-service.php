@@ -43,12 +43,12 @@ while (have_posts()) : the_post();
         <div class="absolute inset-0 bg-gradient-to-t from-[#4338ca] via-[#4338ca]/90 to-transparent"></div>
 
         <div class="container relative z-10 mx-auto flex h-full flex-col justify-center px-6">
-            <div class="mb-4 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-indigo-300">
+            <div class="relative z-20 mb-4 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-indigo-300">
                 <a href="<?php echo esc_url(home_url('/services')); ?>" class="hover:text-white">
                     Services
                 </a>
                 <span>/</span>
-                <span><?php the_title(); ?></span>
+                <span class="text-white"><?php the_title(); ?></span>
             </div>
             <h1 class="font-oswald mb-6 text-7xl font-bold uppercase leading-none tracking-tight md:text-8xl lg:text-9xl">
                 <?php
