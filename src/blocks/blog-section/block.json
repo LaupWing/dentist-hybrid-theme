@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "dentist-hybrid/blog-section",
+  "title": "Blog Section",
+  "category": "design",
+  "icon": "admin-post",
+  "description": "Display latest blog posts with featured layout.",
+  "keywords": ["blog", "posts", "articles"],
+  "textdomain": "dentist-hybrid-theme",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "Latest Insights"
+    },
+    "description": {
+      "type": "string",
+      "default": "Stay updated with the latest trends, tips, and expert advice in dental care to help you maintain a healthy and beautiful smile every day."
+    },
+    "postsToShow": {
+      "type": "number",
+      "default": 3
+    }
+  }
+}

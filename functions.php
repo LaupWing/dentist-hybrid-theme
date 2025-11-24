@@ -93,6 +93,9 @@ function dentist_hybrid_register_blocks() {
 
     // Register cta-section block
     register_block_type(__DIR__ . '/build/blocks/cta-section');
+
+    // Register blog-section block
+    register_block_type(__DIR__ . '/build/blocks/blog-section');
 }
 add_action('init', 'dentist_hybrid_register_blocks');
 
@@ -780,3 +783,111 @@ function dentist_hybrid_register_service_meta_rest() {
     ));
 }
 add_action('init', 'dentist_hybrid_register_service_meta_rest');
+
+// Link Blog Posts to Doctor CPT
+// Add Meta Box to Posts for Doctor Selection
+function dentist_hybrid_add_post_doctor_meta_box() {
+    add_meta_box(
+        'post_doctor_attribution',
+        'Doctor Attribution',
+        'dentist_hybrid_post_doctor_meta_box_callback',
+        'post',
+        'side',
+        'default'
+    );
+}
+add_action('add_meta_boxes', 'dentist_hybrid_add_post_doctor_meta_box');
+
+// Meta Box Callback for Doctor Selection
+function dentist_hybrid_post_doctor_meta_box_callback($post) {
+    wp_nonce_field('dentist_hybrid_save_post_doctor_meta', 'dentist_hybrid_post_doctor_nonce');
+
+    $selected_doctor_id = get_post_meta($post->ID, '_post_doctor_id', true);
+
+    // Get all doctors
+    $doctors = get_posts(array(
+        'post_type' => 'doctor',
+        'posts_per_page' => -1,
+        'orderby' => 'title',
+        'order' => 'ASC',
+    ));
+    ?>
+    <p>
+        <label for="post_doctor_id"><strong>Select Doctor (Author):</strong></label><br>
+        <select id="post_doctor_id" name="post_doctor_id" style="width: 100%; margin-top: 5px;">
+            <option value="">— No Doctor —</option>
+            <?php foreach ($doctors as $doctor) : ?>
+                <option value="<?php echo esc_attr($doctor->ID); ?>" <?php selected($selected_doctor_id, $doctor->ID); ?>>
+                    <?php echo esc_html($doctor->post_title); ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </p>
+    <p class="description">
+        Link this post to a doctor. The doctor's name and photo will be displayed as the author.
+    </p>
+    <?php
+}
+
+// Save Doctor Attribution Meta
+function dentist_hybrid_save_post_doctor_meta($post_id) {
+    if (!isset($_POST['dentist_hybrid_post_doctor_nonce'])) {
+        return;
+    }
+
+    if (!wp_verify_nonce($_POST['dentist_hybrid_post_doctor_nonce'], 'dentist_hybrid_save_post_doctor_meta')) {
+        return;
+    }
+
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+
+    // Save doctor ID
+    if (isset($_POST['post_doctor_id'])) {
+        if (empty($_POST['post_doctor_id'])) {
+            delete_post_meta($post_id, '_post_doctor_id');
+        } else {
+            update_post_meta($post_id, '_post_doctor_id', absint($_POST['post_doctor_id']));
+        }
+    }
+}
+add_action('save_post', 'dentist_hybrid_save_post_doctor_meta');
+
+// Expose post doctor meta to REST API
+function dentist_hybrid_register_post_doctor_meta_rest() {
+    register_post_meta('post', '_post_doctor_id', array(
+        'show_in_rest' => true,
+        'single' => true,
+        'type' => 'integer',
+    ));
+}
+add_action('init', 'dentist_hybrid_register_post_doctor_meta_rest');
+
+// Helper function to get doctor info for a post
+function dentist_hybrid_get_post_doctor($post_id) {
+    $doctor_id = get_post_meta($post_id, '_post_doctor_id', true);
+
+    if (empty($doctor_id)) {
+        return null;
+    }
+
+    $doctor = get_post($doctor_id);
+
+    if (!$doctor || $doctor->post_type !== 'doctor') {
+        return null;
+    }
+
+    return array(
+        'id' => $doctor->ID,
+        'name' => $doctor->post_title,
+        'role' => get_post_meta($doctor->ID, '_doctor_role', true),
+        'specialty' => get_post_meta($doctor->ID, '_doctor_specialty', true),
+        'photo' => get_the_post_thumbnail_url($doctor->ID, 'thumbnail'),
+        'permalink' => get_permalink($doctor->ID),
+    );
+}
