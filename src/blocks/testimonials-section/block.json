@@ -14,15 +14,15 @@
   "attributes": {
     "sectionLabel": {
       "type": "string",
-      "default": "Testimonial"
+      "default": "Getuigenis"
     },
     "heading": {
       "type": "string",
-      "default": "Client Stories"
+      "default": "Klantenverhalen"
     },
     "description": {
       "type": "string",
-      "default": "Smiles transformed through expert care, compassion, and lasting dental health solutions."
+      "default": "Glimlachen getransformeerd door deskundige zorg, medeleven en duurzame mondgezondheidsoplossingen."
     }
   }
 }

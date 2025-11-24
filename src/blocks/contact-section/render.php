@@ -46,7 +46,7 @@ $form_shortcode = $attributes['formShortcode'] ?? '';
                         <div class="grid gap-6 md:grid-cols-2">
                             <div class="space-y-2">
                                 <label for="name" class="text-sm font-bold uppercase tracking-wider text-slate-700">
-                                    Name
+                                    Naam
                                 </label>
                                 <input
                                     type="text"
@@ -54,12 +54,12 @@ $form_shortcode = $attributes['formShortcode'] ?? '';
                                     name="name"
                                     required
                                     class="w-full border-b-2 border-slate-200 bg-transparent px-0 py-3 outline-none transition-colors focus:border-indigo-600"
-                                    placeholder="John Doe"
+                                    placeholder="Jan Jansen"
                                 />
                             </div>
                             <div class="space-y-2">
                                 <label for="phone" class="text-sm font-bold uppercase tracking-wider text-slate-700">
-                                    Phone
+                                    Telefoon
                                 </label>
                                 <input
                                     type="tel"
@@ -67,14 +67,14 @@ $form_shortcode = $attributes['formShortcode'] ?? '';
                                     name="phone"
                                     required
                                     class="w-full border-b-2 border-slate-200 bg-transparent px-0 py-3 outline-none transition-colors focus:border-indigo-600"
-                                    placeholder="+1 (555) 000-0000"
+                                    placeholder="+31 (0)6 1234 5678"
                                 />
                             </div>
                         </div>
 
                         <div class="space-y-2">
                             <label for="email" class="text-sm font-bold uppercase tracking-wider text-slate-700">
-                                Email
+                                E-mail
                             </label>
                             <input
                                 type="email"
@@ -82,13 +82,13 @@ $form_shortcode = $attributes['formShortcode'] ?? '';
                                 name="email"
                                 required
                                 class="w-full border-b-2 border-slate-200 bg-transparent px-0 py-3 outline-none transition-colors focus:border-indigo-600"
-                                placeholder="john@example.com"
+                                placeholder="jan@voorbeeld.nl"
                             />
                         </div>
 
                         <div class="space-y-2">
                             <label for="service" class="text-sm font-bold uppercase tracking-wider text-slate-700">
-                                Service Needed
+                                Gewenste Service
                             </label>
                             <select
                                 id="service"
@@ -96,24 +96,24 @@ $form_shortcode = $attributes['formShortcode'] ?? '';
                                 required
                                 class="w-full border-b-2 border-slate-200 bg-transparent px-0 py-3 outline-none transition-colors focus:border-indigo-600"
                             >
-                                <option value="">Select a treatment</option>
-                                <option value="checkup">Routine Check-up</option>
-                                <option value="cleaning">Cleaning</option>
-                                <option value="whitening">Teeth Whitening</option>
-                                <option value="emergency">Emergency</option>
+                                <option value="">Selecteer een behandeling</option>
+                                <option value="checkup">Routinecontrole</option>
+                                <option value="cleaning">Reiniging</option>
+                                <option value="whitening">Tandbleking</option>
+                                <option value="emergency">Spoedeisend</option>
                             </select>
                         </div>
 
                         <div class="space-y-2">
                             <label for="message" class="text-sm font-bold uppercase tracking-wider text-slate-700">
-                                Message (Optional)
+                                Bericht (Optioneel)
                             </label>
                             <textarea
                                 id="message"
                                 name="message"
                                 rows="4"
                                 class="w-full border-b-2 border-slate-200 bg-transparent px-0 py-3 outline-none transition-colors focus:border-indigo-600"
-                                placeholder="Tell us about your dental needs..."
+                                placeholder="Vertel ons over jouw tandheelkundige wensen..."
                             ></textarea>
                         </div>
 
@@ -121,7 +121,7 @@ $form_shortcode = $attributes['formShortcode'] ?? '';
                             type="submit"
                             class="mt-4 w-full rounded-full bg-[#a3e635] px-8 py-4 text-sm font-bold uppercase tracking-wider text-black transition-transform hover:scale-[1.02]"
                         >
-                            Submit Request
+                            Verstuur Aanvraag
                         </button>
                     </form>
                 <?php endif; ?>
@@ -139,7 +139,7 @@ $form_shortcode = $attributes['formShortcode'] ?? '';
                             </svg>
                         </div>
                         <div>
-                            <h3 class="mb-1 text-lg font-bold uppercase text-slate-900">Location</h3>
+                            <h3 class="mb-1 text-lg font-bold uppercase text-slate-900">Locatie</h3>
                             <p class="text-slate-600">
                                 <?php echo wp_kses_post($address); ?>
                             </p>
@@ -154,7 +154,7 @@ $form_shortcode = $attributes['formShortcode'] ?? '';
                             </svg>
                         </div>
                         <div>
-                            <h3 class="mb-1 text-lg font-bold uppercase text-slate-900">Phone</h3>
+                            <h3 class="mb-1 text-lg font-bold uppercase text-slate-900">Telefoon</h3>
                             <p class="text-slate-600"><?php echo esc_html($phone); ?></p>
                             <p class="text-sm text-slate-400"><?php echo esc_html($phone_hours); ?></p>
                         </div>
@@ -168,7 +168,7 @@ $form_shortcode = $attributes['formShortcode'] ?? '';
                             </svg>
                         </div>
                         <div>
-                            <h3 class="mb-1 text-lg font-bold uppercase text-slate-900">Email</h3>
+                            <h3 class="mb-1 text-lg font-bold uppercase text-slate-900">E-mail</h3>
                             <p class="text-slate-600"><?php echo esc_html($email); ?></p>
                         </div>
                     </div>
@@ -181,7 +181,7 @@ $form_shortcode = $attributes['formShortcode'] ?? '';
                             </svg>
                         </div>
                         <div>
-                            <h3 class="mb-1 text-lg font-bold uppercase text-slate-900">Working Hours</h3>
+                            <h3 class="mb-1 text-lg font-bold uppercase text-slate-900">Openingstijden</h3>
                             <div class="text-slate-600">
                                 <?php echo wp_kses_post($working_hours); ?>
                             </div>
@@ -199,7 +199,7 @@ $form_shortcode = $attributes['formShortcode'] ?? '';
                         allowfullscreen=""
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"
-                        title="Location Map"
+                        title="Locatiekaart"
                     ></iframe>
                 </div>
             </div>

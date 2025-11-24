@@ -13,11 +13,11 @@
   "attributes": {
     "heading": {
       "type": "string",
-      "default": "Ready for a<br />Brighter Smile?"
+      "default": "Klaar voor een<br />Stralendere Glimlach?"
     },
     "primaryButtonText": {
       "type": "string",
-      "default": "Book Appointment"
+      "default": "Maak Afspraak"
     },
     "primaryButtonUrl": {
       "type": "string",
@@ -25,7 +25,7 @@
     },
     "secondaryButtonText": {
       "type": "string",
-      "default": "Meet Our Team"
+      "default": "Ontmoet Ons Team"
     },
     "secondaryButtonUrl": {
       "type": "string",

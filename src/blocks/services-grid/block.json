@@ -14,7 +14,7 @@
   "attributes": {
     "sectionLabel": {
       "type": "string",
-      "default": "All Treatments"
+      "default": "Alle Behandelingen"
     },
     "postsPerPage": {
       "type": "number",

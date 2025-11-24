@@ -18,15 +18,15 @@
     },
     "heading": {
       "type": "string",
-      "default": "Dental Service"
+      "default": "Tandheelkundige Service"
     },
     "description": {
       "type": "string",
-      "default": "We offer quality dental care with cleanings, fillings, whitening, and personalized treatments from experienced dentists in a comfortable, friendly environment."
+      "default": "Wij bieden kwalitatieve tandheelkundige zorg met reinigingen, vullingen, bleken en gepersonaliseerde behandelingen van ervaren tandartsen in een comfortabele, vriendelijke omgeving."
     },
     "buttonText": {
       "type": "string",
-      "default": "Book Now"
+      "default": "Boek Nu"
     },
     "buttonUrl": {
       "type": "string",
@@ -36,20 +36,20 @@
       "type": "array",
       "default": [
         {
-          "title": "Preventive Dental Care",
-          "description": "Regular cleanings and exams to maintain oral health, prevent cavities, and catch issues early.",
+          "title": "Preventieve Tandverzorging",
+          "description": "Regelmatige reinigingen en controles om de mondgezondheid te behouden, gaatjes te voorkomen en problemen vroeg op te sporen.",
           "icon": "plus",
           "image": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=400"
         },
         {
-          "title": "Cosmetic Teeth Whitening",
-          "description": "Regular cleanings and exams to maintain oral health, prevent cavities, and catch issues early.",
+          "title": "Cosmetische Tandbleking",
+          "description": "Regelmatige reinigingen en controles om de mondgezondheid te behouden, gaatjes te voorkomen en problemen vroeg op te sporen.",
           "icon": "smile",
           "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=400"
         },
         {
-          "title": "Restorative Dental Treatments",
-          "description": "Regular cleanings and exams to maintain oral health, prevent cavities, and catch issues early.",
+          "title": "Herstelbehandelingen",
+          "description": "Regelmatige reinigingen en controles om de mondgezondheid te behouden, gaatjes te voorkomen en problemen vroeg op te sporen.",
           "icon": "shield",
           "image": "https://images.unsplash.com/photo-1609840114035-3c981960a79e?w=400"
         }

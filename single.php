@@ -30,16 +30,16 @@ while (have_posts()) : the_post();
                     <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                     </svg>
-                    Back to Blog
+                    Terug naar Blog
                 </a>
                 <span class="h-1 w-1 rounded-full bg-white/50"></span>
-                <span class="text-lime-400"><?php echo esc_html(get_the_category()[0]->name ?? 'Uncategorized'); ?></span>
+                <span class="text-lime-400"><?php echo esc_html(get_the_category()[0]->name ?? 'Ongecategoriseerd'); ?></span>
                 <span class="h-1 w-1 rounded-full bg-white/50"></span>
                 <span class="flex items-center gap-2">
                     <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                     </svg>
-                    <?php echo get_the_date('M j, Y'); ?>
+                    <?php echo get_the_date('j M Y'); ?>
                 </span>
                 <span class="h-1 w-1 rounded-full bg-white/50"></span>
                 <span class="flex items-center gap-2">
@@ -50,7 +50,7 @@ while (have_posts()) : the_post();
                     $content = get_the_content();
                     $word_count = str_word_count(strip_tags($content));
                     $reading_time = ceil($word_count / 200);
-                    echo $reading_time . ' Min Read';
+                    echo $reading_time . ' min leestijd';
                     ?>
                 </span>
             </div>
@@ -67,7 +67,7 @@ while (have_posts()) : the_post();
                 <!-- Sidebar / Share -->
                 <aside class="hidden lg:col-span-1 lg:block">
                     <div class="sticky top-32 flex flex-col gap-6">
-                        <p class="text-xs font-bold uppercase tracking-widest text-slate-400">Share</p>
+                        <p class="text-xs font-bold uppercase tracking-widest text-slate-400">Delen</p>
                         <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()); ?>" target="_blank" rel="noopener" class="group flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-400 transition-colors hover:border-indigo-600 hover:bg-indigo-600 hover:text-white">
                             <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
@@ -135,21 +135,21 @@ while (have_posts()) : the_post();
                     <div class="sticky top-32 space-y-8">
                         <!-- CTA Box -->
                         <div class="bg-indigo-900 p-8 text-center text-white">
-                            <h3 class="font-oswald mb-4 text-3xl font-bold uppercase">Ready for a Brighter Smile?</h3>
+                            <h3 class="font-oswald mb-4 text-3xl font-bold uppercase">Klaar voor een Stralendere Glimlach?</h3>
                             <p class="mb-8 text-indigo-200">
-                                Book your consultation today and get 50% off your first whitening treatment.
+                                Boek vandaag je consultatie en krijg 50% korting op je eerste bleekbehandeling.
                             </p>
                             <a
                                 href="<?php echo esc_url(home_url('/contact')); ?>"
                                 class="inline-block w-full bg-lime-400 px-8 py-4 text-sm font-bold uppercase tracking-wider text-slate-900 transition-colors hover:bg-white"
                             >
-                                Book Appointment
+                                Maak Afspraak
                             </a>
                         </div>
 
                         <!-- Related Articles Box -->
                         <div class="bg-white p-8 shadow-sm">
-                            <h3 class="font-oswald mb-6 text-xl font-bold uppercase text-slate-900">Related Articles</h3>
+                            <h3 class="font-oswald mb-6 text-xl font-bold uppercase text-slate-900">Gerelateerde Artikelen</h3>
                             <div class="space-y-6">
                                 <?php
                                 // Get 3 related posts from the same category
@@ -206,7 +206,7 @@ while (have_posts()) : the_post();
                             <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                             </svg>
-                            Previous Article
+                            Vorig Artikel
                         </span>
                         <span class="font-oswald text-2xl font-bold uppercase text-slate-900 transition-colors group-hover:text-indigo-600">
                             <?php echo get_the_title($prev_post); ?>
@@ -219,7 +219,7 @@ while (have_posts()) : the_post();
                 <?php if ($next_post) : ?>
                     <a href="<?php echo get_permalink($next_post); ?>" class="group flex flex-col items-end gap-2 text-right md:items-end md:text-right">
                         <span class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-400">
-                            Next Article
+                            Volgend Artikel
                             <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                             </svg>

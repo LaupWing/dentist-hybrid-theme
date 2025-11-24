@@ -12,19 +12,19 @@
   "attributes": {
     "sectionLabel": {
       "type": "string",
-      "default": "Specialist Doctor"
+      "default": "Specialist Tandarts"
     },
     "heading": {
       "type": "string",
-      "default": "Caring Hands,<br />Professional Dental<br />Expertise"
+      "default": "Zorgzame Handen,<br />Professionele Tandheelkundige<br />Expertise"
     },
     "description": {
       "type": "string",
-      "default": "Our compassionate team combines caring hands with professional dental expertise to provide gentle, effective treatments for your healthiest smile."
+      "default": "Ons medelevende team combineert zorgzame handen met professionele tandheelkundige expertise om zachte, effectieve behandelingen te bieden voor jouw gezondste glimlach."
     },
     "buttonText": {
       "type": "string",
-      "default": "Book Now"
+      "default": "Boek Nu"
     },
     "buttonLink": {
       "type": "string",

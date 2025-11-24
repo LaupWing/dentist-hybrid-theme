@@ -14,34 +14,34 @@
   "attributes": {
     "sectionLabel": {
       "type": "string",
-      "default": "About Us"
+      "default": "Over Ons"
     },
     "heading": {
       "type": "string",
-      "default": "Passionate<br />About Your<br />Health"
+      "default": "Gepassioneerd<br />Over Jouw<br />Gezondheid"
     },
     "paragraph1": {
       "type": "string",
-      "default": "At our dental clinic, we are deeply committed to your overall health and well-being. We believe that a healthy smile is a vital part of your quality of life. That's why our passionate team works tirelessly to provide personalized care tailored to your unique needs."
+      "default": "Bij onze tandartspraktijk zetten wij ons volledig in voor jouw algehele gezondheid en welzijn. We geloven dat een gezonde glimlach een essentieel onderdeel is van jouw kwaliteit van leven. Daarom werkt ons gepassioneerde team onvermoeibaar om gepersonaliseerde zorg te bieden die is afgestemd op jouw unieke behoeften."
     },
     "paragraph2": {
       "type": "string",
-      "default": "Our oral health is our priority. From routine check-ups to advanced procedures, we provide gentle, modern care in a warm, supportive setting."
+      "default": "Jouw mondgezondheid is onze prioriteit. Van routinecontroles tot geavanceerde behandelingen, wij bieden zachte, moderne zorg in een warme, ondersteunende omgeving."
     },
     "stats": {
       "type": "array",
       "default": [
         {
           "number": "95%",
-          "label": "Patient Satisfaction"
+          "label": "Patiënttevredenheid"
         },
         {
           "number": "10k+",
-          "label": "Tooth Transformation"
+          "label": "Tandtransformaties"
         },
         {
           "number": "99%",
-          "label": "Patient Success Rate"
+          "label": "Patiënt Successpercentage"
         }
       ]
     },

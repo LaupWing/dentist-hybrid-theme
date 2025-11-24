@@ -13,31 +13,31 @@
   "attributes": {
     "heading": {
       "type": "string",
-      "default": "Book an Appointment"
+      "default": "Maak een Afspraak"
     },
     "description": {
       "type": "string",
-      "default": "Fill out the form below and we'll get back to you as soon as possible to confirm your appointment."
+      "default": "Vul het onderstaande formulier in en we nemen zo snel mogelijk contact met je op om je afspraak te bevestigen."
     },
     "address": {
       "type": "string",
-      "default": "123 Dental Avenue, Suite 100<br />New York, NY 10001"
+      "default": "Tandheelkundelaan 123, Suite 100<br />Amsterdam, 1012 AB"
     },
     "phone": {
       "type": "string",
-      "default": "+1 (555) 123-4567"
+      "default": "+31 (0)20 123 4567"
     },
     "phoneHours": {
       "type": "string",
-      "default": "Mon-Fri from 8am to 6pm"
+      "default": "Ma-Vr van 8:00 tot 18:00"
     },
     "email": {
       "type": "string",
-      "default": "hello@smileo.com"
+      "default": "hallo@smileo.nl"
     },
     "workingHours": {
       "type": "string",
-      "default": "Monday - Friday: 8:00 AM - 6:00 PM<br />Saturday: 9:00 AM - 2:00 PM<br />Sunday: Closed"
+      "default": "Maandag - Vrijdag: 8:00 - 18:00<br />Zaterdag: 9:00 - 14:00<br />Zondag: Gesloten"
     },
     "formShortcode": {
       "type": "string",

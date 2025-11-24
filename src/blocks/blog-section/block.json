@@ -13,11 +13,11 @@
   "attributes": {
     "heading": {
       "type": "string",
-      "default": "Latest Insights"
+      "default": "Laatste Inzichten"
     },
     "description": {
       "type": "string",
-      "default": "Stay updated with the latest trends, tips, and expert advice in dental care to help you maintain a healthy and beautiful smile every day."
+      "default": "Blijf op de hoogte van de laatste trends, tips en deskundig advies op het gebied van tandheelkundige zorg om je elke dag te helpen een gezonde en mooie glimlach te behouden."
     },
     "postsToShow": {
       "type": "number",

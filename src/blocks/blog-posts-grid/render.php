@@ -30,7 +30,7 @@ $post_index = 0;
     <div class="container mx-auto px-6">
         <div class="mb-12 flex items-center gap-4">
             <span class="whitespace-nowrap text-xs font-bold uppercase tracking-widest text-slate-500">
-                All Articles
+                Alle Artikelen
             </span>
             <div class="h-[2px] w-full bg-slate-300"></div>
         </div>
@@ -82,7 +82,7 @@ $post_index = 0;
                                         <?php echo wp_trim_words(get_the_excerpt(), 30); ?>
                                     </p>
                                     <div class="inline-flex items-center text-sm font-bold uppercase tracking-wider text-indigo-600 hover:text-indigo-800">
-                                        Read Article
+                                        Lees Artikel
                                         <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                                         </svg>
@@ -115,7 +115,7 @@ $post_index = 0;
                                     <?php echo wp_trim_words(get_the_excerpt(), 20); ?>
                                 </p>
                                 <div class="inline-flex items-center text-sm font-bold uppercase tracking-wider text-slate-900 underline decoration-slate-300 underline-offset-4 transition-colors group-hover:text-indigo-600">
-                                    Read More
+                                    Lees Meer
                                     <svg class="ml-2 h-3 w-3 -rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                                     </svg>
@@ -134,7 +134,7 @@ $post_index = 0;
                         // Previous button
                         if (get_previous_posts_link()) : ?>
                             <div class="previous">
-                                <?php previous_posts_link('<span class="inline-flex items-center gap-2 px-4 py-2 text-sm font-bold uppercase tracking-wider text-slate-700 transition-colors hover:text-indigo-600"><svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg> Prev</span>'); ?>
+                                <?php previous_posts_link('<span class="inline-flex items-center gap-2 px-4 py-2 text-sm font-bold uppercase tracking-wider text-slate-700 transition-colors hover:text-indigo-600"><svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg> Vorige</span>'); ?>
                             </div>
                         <?php endif; ?>
 
@@ -157,7 +157,7 @@ $post_index = 0;
                         // Next button
                         if (get_next_posts_link('', $blog_posts->max_num_pages)) : ?>
                             <div class="next">
-                                <?php next_posts_link('<span class="inline-flex items-center gap-2 px-4 py-2 text-sm font-bold uppercase tracking-wider text-slate-700 transition-colors hover:text-indigo-600">Next <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>', $blog_posts->max_num_pages); ?>
+                                <?php next_posts_link('<span class="inline-flex items-center gap-2 px-4 py-2 text-sm font-bold uppercase tracking-wider text-slate-700 transition-colors hover:text-indigo-600">Volgende <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>', $blog_posts->max_num_pages); ?>
                             </div>
                         <?php endif; ?>
                     </div>
@@ -171,9 +171,9 @@ $post_index = 0;
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                 </svg>
                 <h2 class="font-oswald mb-4 text-4xl font-bold uppercase text-slate-900">
-                    No Posts Yet
+                    Nog Geen Berichten
                 </h2>
-                <p class="text-slate-600">Check back soon for expert dental insights and tips!</p>
+                <p class="text-slate-600">Kom binnenkort terug voor deskundige tandheelkundige inzichten en tips!</p>
             </div>
         <?php endif; ?>
 

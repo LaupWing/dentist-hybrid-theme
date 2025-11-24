@@ -14,7 +14,7 @@
   "attributes": {
     "sectionLabel": {
       "type": "string",
-      "default": "Our Team"
+      "default": "Ons Team"
     },
     "postsPerPage": {
       "type": "number",
