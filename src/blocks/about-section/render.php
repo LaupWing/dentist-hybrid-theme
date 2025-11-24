@@ -1,4 +1,5 @@
 <?php
+
 /**
  * About Section Block Template
  *
@@ -31,7 +32,7 @@ $image2 = $attributes['image2'] ?? 'https://images.unsplash.com/photo-1588776814
 $decorative_icon = $attributes['decorativeIcon'] ?? '';
 ?>
 
-<section <?php echo get_block_wrapper_attributes(['class' => 'py-24']); ?>>
+<section data-id <?php echo get_block_wrapper_attributes(['class' => 'py-24']); ?>>
     <div class="container mx-auto">
         <div class="mb-4 flex items-center gap-4">
             <span class="whitespace-nowrap text-xs font-bold uppercase tracking-widest text-slate-500">
@@ -61,8 +62,7 @@ $decorative_icon = $attributes['decorativeIcon'] ?? '';
                                 <img
                                     src="<?php echo esc_url($decorative_icon); ?>"
                                     alt="icon"
-                                    class="h-10 w-10 rounded-full object-cover"
-                                />
+                                    class="h-10 w-10 rounded-full object-cover" />
                             <?php else : ?>
                                 <div class="h-10 w-10 rounded-full bg-indigo-100"></div>
                             <?php endif; ?>
@@ -88,15 +88,13 @@ $decorative_icon = $attributes['decorativeIcon'] ?? '';
                 <img
                     src="<?php echo esc_url($image1); ?>"
                     alt="Dental Patient"
-                    class="h-full w-full object-cover grayscale transition-all duration-500 hover:scale-105 hover:grayscale-0"
-                />
+                    class="h-full w-full object-cover grayscale transition-all duration-500 hover:scale-105 hover:grayscale-0" />
             </div>
             <div class="relative h-[400px] overflow-hidden rounded-sm md:h-[500px]">
                 <img
                     src="<?php echo esc_url($image2); ?>"
                     alt="Dentist Working"
-                    class="h-full w-full object-cover grayscale transition-all duration-500 hover:scale-105 hover:grayscale-0"
-                />
+                    class="h-full w-full object-cover grayscale transition-all duration-500 hover:scale-105 hover:grayscale-0" />
             </div>
         </div>
     </div>
