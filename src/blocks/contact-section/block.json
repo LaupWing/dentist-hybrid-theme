@@ -1,0 +1,47 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "dentist-hybrid/contact-section",
+  "title": "Contact Section",
+  "category": "design",
+  "icon": "email",
+  "description": "Contact form and information section.",
+  "keywords": ["contact", "form", "info", "address"],
+  "textdomain": "dentist-hybrid-theme",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": "Book an Appointment"
+    },
+    "description": {
+      "type": "string",
+      "default": "Fill out the form below and we'll get back to you as soon as possible to confirm your appointment."
+    },
+    "address": {
+      "type": "string",
+      "default": "123 Dental Avenue, Suite 100<br />New York, NY 10001"
+    },
+    "phone": {
+      "type": "string",
+      "default": "+1 (555) 123-4567"
+    },
+    "phoneHours": {
+      "type": "string",
+      "default": "Mon-Fri from 8am to 6pm"
+    },
+    "email": {
+      "type": "string",
+      "default": "hello@smileo.com"
+    },
+    "workingHours": {
+      "type": "string",
+      "default": "Monday - Friday: 8:00 AM - 6:00 PM<br />Saturday: 9:00 AM - 2:00 PM<br />Sunday: Closed"
+    },
+    "formShortcode": {
+      "type": "string",
+      "default": ""
+    }
+  }
+}

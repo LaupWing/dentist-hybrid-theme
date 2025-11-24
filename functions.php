@@ -99,6 +99,9 @@ function dentist_hybrid_register_blocks() {
 
     // Register blog-posts-grid block
     register_block_type(__DIR__ . '/build/blocks/blog-posts-grid');
+
+    // Register contact-section block
+    register_block_type(__DIR__ . '/build/blocks/contact-section');
 }
 add_action('init', 'dentist_hybrid_register_blocks');
 
@@ -894,3 +897,45 @@ function dentist_hybrid_get_post_doctor($post_id) {
         'permalink' => get_permalink($doctor->ID),
     );
 }
+
+// Handle Contact Form Submission
+function dentist_hybrid_handle_contact_form() {
+    // Verify nonce
+    if (!isset($_POST['contact_nonce']) || !wp_verify_nonce($_POST['contact_nonce'], 'contact_form_nonce')) {
+        wp_die('Security check failed');
+    }
+
+    // Sanitize and get form data
+    $name = sanitize_text_field($_POST['name']);
+    $phone = sanitize_text_field($_POST['phone']);
+    $email = sanitize_email($_POST['email']);
+    $service = sanitize_text_field($_POST['service']);
+    $message = sanitize_textarea_field($_POST['message']);
+
+    // Get admin email
+    $to = get_option('admin_email');
+    $subject = 'New Contact Form Submission from ' . $name;
+
+    // Build email body
+    $body = "New contact form submission:\n\n";
+    $body .= "Name: $name\n";
+    $body .= "Phone: $phone\n";
+    $body .= "Email: $email\n";
+    $body .= "Service: $service\n";
+    $body .= "Message: $message\n";
+
+    $headers = array('Content-Type: text/plain; charset=UTF-8');
+
+    // Send email
+    $sent = wp_mail($to, $subject, $body, $headers);
+
+    // Redirect back with success or error message
+    if ($sent) {
+        wp_redirect(add_query_arg('contact', 'success', wp_get_referer()));
+    } else {
+        wp_redirect(add_query_arg('contact', 'error', wp_get_referer()));
+    }
+    exit;
+}
+add_action('admin_post_nopriv_submit_contact_form', 'dentist_hybrid_handle_contact_form');
+add_action('admin_post_submit_contact_form', 'dentist_hybrid_handle_contact_form');
