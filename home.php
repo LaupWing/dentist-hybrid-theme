@@ -122,25 +122,55 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
             <?php
             global $wp_query;
             if ($wp_query->max_num_pages > 1) :
-                $big = 999999999;
-                echo '<nav class="mt-16 flex justify-center" aria-label="Blog Pagination">';
-                echo '<div class="inline-flex items-center gap-2 bg-white p-2 shadow-sm">';
-
-                echo paginate_links(array(
-                    'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
-                    'format' => '?paged=%#%',
-                    'current' => max(1, get_query_var('paged')),
-                    'total' => $wp_query->max_num_pages,
-                    'prev_text' => '<span class="inline-flex items-center gap-2 px-4 py-2 text-sm font-bold uppercase tracking-wider text-slate-700 transition-colors hover:text-indigo-600"><svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg> Vorige</span>',
-                    'next_text' => '<span class="inline-flex items-center gap-2 px-4 py-2 text-sm font-bold uppercase tracking-wider text-slate-700 transition-colors hover:text-indigo-600">Volgende <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>',
-                    'before_page_number' => '<span class="inline-flex h-10 w-10 items-center justify-center font-bold text-slate-600 transition-colors hover:bg-slate-100 hover:text-indigo-900">',
-                    'after_page_number' => '</span>',
-                ));
-
-                echo '</div>';
-                echo '</nav>';
-            endif;
+                $current_page = max(1, get_query_var('paged'));
+                $base_url = home_url('/blog');
             ?>
+                <nav class="mt-16 flex justify-center" aria-label="Blog Pagination">
+                    <div class="inline-flex items-center gap-2 bg-white p-2 shadow-sm">
+                        <?php
+                        // Previous button
+                        if ($current_page > 1) :
+                            $prev_url = ($current_page == 2) ? $base_url : $base_url . '/page/' . ($current_page - 1);
+                        ?>
+                            <a href="<?php echo esc_url($prev_url); ?>" class="inline-flex items-center gap-2 px-4 py-2 text-sm font-bold uppercase tracking-wider text-slate-700 transition-colors hover:text-indigo-600">
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                </svg>
+                                Vorige
+                            </a>
+                        <?php endif; ?>
+
+                        <?php
+                        // Page numbers
+                        for ($i = 1; $i <= $wp_query->max_num_pages; $i++) :
+                            $page_url = ($i == 1) ? $base_url : $base_url . '/page/' . $i;
+                            if ($i == $current_page) : ?>
+                                <span class="inline-flex h-10 w-10 items-center justify-center bg-indigo-900 font-bold text-white">
+                                    <?php echo $i; ?>
+                                </span>
+                            <?php else : ?>
+                                <a href="<?php echo esc_url($page_url); ?>" class="inline-flex h-10 w-10 items-center justify-center font-bold text-slate-600 transition-colors hover:bg-slate-100 hover:text-indigo-900">
+                                    <?php echo $i; ?>
+                                </a>
+                            <?php endif;
+                        endfor;
+                        ?>
+
+                        <?php
+                        // Next button
+                        if ($current_page < $wp_query->max_num_pages) :
+                            $next_url = $base_url . '/page/' . ($current_page + 1);
+                        ?>
+                            <a href="<?php echo esc_url($next_url); ?>" class="inline-flex items-center gap-2 px-4 py-2 text-sm font-bold uppercase tracking-wider text-slate-700 transition-colors hover:text-indigo-600">
+                                Volgende
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        <?php endif; ?>
+                    </div>
+                </nav>
+            <?php endif; ?>
 
         <?php else : ?>
             <!-- No Posts Found -->
