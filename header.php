@@ -34,7 +34,7 @@
                     <a href="<?php echo esc_url(home_url('/services/')); ?>" class="transition-colors hover:text-indigo-700 <?php echo (is_post_type_archive('service') || is_singular('service') || is_page_template('page-services.php') || is_page('services')) ? 'text-indigo-700' : ''; ?>">
                         SERVICES
                     </a>
-                    <a href="<?php echo esc_url(home_url('/doctors/')); ?>" class="transition-colors hover:text-indigo-700 <?php echo (is_post_type_archive('doctor') || is_singular('doctor')) ? 'text-indigo-700' : ''; ?>">
+                    <a href="<?php echo esc_url(home_url('/doctors/')); ?>" class="transition-colors hover:text-indigo-700 <?php echo (is_post_type_archive('doctor') || is_singular('doctor') || is_page_template('page-doctors.php') || is_page('doctors')) ? 'text-indigo-700' : ''; ?>">
                         DOCTORS
                     </a>
                     <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="transition-colors hover:text-indigo-700 <?php echo (is_singular('post') || is_category() || is_tag()) ? 'text-indigo-700' : ''; ?>">
@@ -62,7 +62,7 @@
                     <a href="<?php echo esc_url(home_url('/services/')); ?>" class="border-b border-slate-100 py-3 text-center font-bold text-slate-700 hover:text-indigo-700 <?php echo (is_post_type_archive('service') || is_singular('service') || is_page_template('page-services.php') || is_page('services')) ? 'text-indigo-700' : ''; ?>">
                         SERVICES
                     </a>
-                    <a href="<?php echo esc_url(home_url('/doctors/')); ?>" class="border-b border-slate-100 py-3 text-center font-bold text-slate-700 hover:text-indigo-700 <?php echo (is_post_type_archive('doctor') || is_singular('doctor')) ? 'text-indigo-700' : ''; ?>">
+                    <a href="<?php echo esc_url(home_url('/doctors/')); ?>" class="border-b border-slate-100 py-3 text-center font-bold text-slate-700 hover:text-indigo-700 <?php echo (is_post_type_archive('doctor') || is_singular('doctor') || is_page_template('page-doctors.php') || is_page('doctors')) ? 'text-indigo-700' : ''; ?>">
                         DOCTORS
                     </a>
                     <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="py-3 text-center font-bold text-slate-700 hover:text-indigo-700 <?php echo (is_singular('post') || is_category() || is_tag()) ? 'text-indigo-700' : ''; ?>">
