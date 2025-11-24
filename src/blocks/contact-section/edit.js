@@ -227,11 +227,18 @@ export default function Edit({ attributes, setAttributes }) {
                                 </div>
                             </div>
 
-                            {/* Map Placeholder */}
+                            {/* Google Maps */}
                             <div className="relative h-64 w-full overflow-hidden bg-slate-200">
-                                <div className="absolute inset-0 flex items-center justify-center font-bold text-slate-400">
-                                    MAP VIEW
-                                </div>
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.8191276581956!2d4.890236576793937!3d52.37307597198033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c609c3db87e4bb%3A0xb3a175ceffbd0a9f!2sDam%20Square!5e0!3m2!1sen!2snl!4v1234567890123!5m2!1sen!2snl"
+                                    width="100%"
+                                    height="100%"
+                                    style={{ border: 0 }}
+                                    allowFullScreen=""
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                    title="Location Map"
+                                ></iframe>
                             </div>
                         </div>
                     </div>
