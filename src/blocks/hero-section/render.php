@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Hero Section Block Template
  *
@@ -41,31 +42,29 @@ $icons = [
 ];
 ?>
 
-<section <?php echo get_block_wrapper_attributes(['class' => 'relative min-h-[900px] w-full overflow-hidden bg-slate-900 pt-24 text-white']); ?>>
+<section data-id <?php echo get_block_wrapper_attributes(['class' => 'relative min-h-[900px] w-full overflow-hidden bg-slate-900 pt-24 text-white']); ?>>
     <img
         src="<?php echo esc_url($background_image); ?>"
         alt="Dental Care"
-        class="absolute inset-0 h-full w-full object-cover opacity-60"
-    />
+        class="absolute inset-0 h-full w-full object-cover opacity-60" />
 
     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
 
     <div class="container relative mx-auto pt-20 pb-12">
         <!-- Hero Text Content -->
         <div class="max-w-3xl mb-16">
-            <h1 class="mb-6 text-5xl font-bold uppercase leading-[0.9] tracking-tight sm:text-6xl md:text-7xl text-white max-w-4xl">
+            <h1 data-id class="mb-6 text-5xl font-bold uppercase leading-[0.9] tracking-tight sm:text-6xl md:text-7xl text-white max-w-4xl">
                 <?php echo wp_kses_post($heading); ?>
             </h1>
 
-            <p class="mb-8 max-w-lg text-lg text-slate-200">
+            <p data-id class="mb-8 max-w-lg text-lg text-slate-200">
                 <?php echo wp_kses_post($description); ?>
             </p>
 
             <div class="flex flex-wrap gap-4">
                 <a
                     href="<?php echo esc_url($primary_button_url); ?>"
-                    class="rounded-full bg-[#a3e635] px-8 py-4 text-sm font-bold uppercase tracking-wider text-black transition-transform hover:scale-105 inline-flex items-center gap-2"
-                >
+                    class="rounded-full bg-[#a3e635] px-8 py-4 text-sm font-bold uppercase tracking-wider text-black transition-transform hover:scale-105 inline-flex items-center gap-2">
                     <?php echo esc_html($primary_button_text); ?>
                     <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -73,15 +72,14 @@ $icons = [
                 </a>
                 <a
                     href="<?php echo esc_url($secondary_button_url); ?>"
-                    class="rounded-full border border-white/30 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white backdrop-blur-sm transition-colors hover:bg-white/10"
-                >
+                    class="rounded-full border border-white/30 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white backdrop-blur-sm transition-colors hover:bg-white/10">
                     <?php echo esc_html($secondary_button_text); ?>
                 </a>
             </div>
         </div>
 
         <!-- Hero Bottom Cards -->
-        <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <div data-id class="grid grid-cols-1 gap-4 md:grid-cols-3">
             <?php foreach ($cards as $card) : ?>
                 <div class="group flex flex-col justify-between rounded-xl border-t border-white/20 bg-white/10 p-8 backdrop-blur-md transition-colors hover:bg-white/20">
                     <svg class="mb-4 h-8 w-8 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
