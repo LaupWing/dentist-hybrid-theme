@@ -4,7 +4,7 @@
  */
 
 // Disable WordPress Admin Bar on Frontend
-add_filter('show_admin_bar', '__return_false');
+// add_filter('show_admin_bar', '__return_false');
 
 // Enqueue Tailwind CSS
 function dentist_hybrid_enqueue_styles() {
