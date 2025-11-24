@@ -96,6 +96,9 @@ function dentist_hybrid_register_blocks() {
 
     // Register blog-section block
     register_block_type(__DIR__ . '/build/blocks/blog-section');
+
+    // Register blog-posts-grid block
+    register_block_type(__DIR__ . '/build/blocks/blog-posts-grid');
 }
 add_action('init', 'dentist_hybrid_register_blocks');
 

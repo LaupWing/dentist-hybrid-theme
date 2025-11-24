@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "dentist-hybrid/blog-posts-grid",
+  "title": "Blog Posts Grid",
+  "category": "design",
+  "icon": "grid-view",
+  "description": "Display blog posts in a grid with featured post and pagination.",
+  "keywords": ["blog", "posts", "grid", "archive"],
+  "textdomain": "dentist-hybrid-theme",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "attributes": {
+    "postsPerPage": {
+      "type": "number",
+      "default": 9
+    }
+  }
+}

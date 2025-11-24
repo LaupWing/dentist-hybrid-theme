@@ -28,7 +28,7 @@
             <!-- Desktop Navigation Right -->
             <div class="hidden items-center gap-8 md:flex">
                 <nav class="flex gap-6 text-sm font-bold text-slate-600">
-                    <a href="<?php echo esc_url(home_url('/')); ?>" class="transition-colors hover:text-indigo-700 <?php echo (is_front_page() || is_home()) ? 'text-indigo-700' : ''; ?>">
+                    <a href="<?php echo esc_url(home_url('/')); ?>" class="transition-colors hover:text-indigo-700 <?php echo is_front_page() ? 'text-indigo-700' : ''; ?>">
                         HOME
                     </a>
                     <a href="<?php echo esc_url(home_url('/services/')); ?>" class="transition-colors hover:text-indigo-700 <?php echo (is_post_type_archive('service') || is_singular('service') || is_page_template('page-services.php') || is_page('services')) ? 'text-indigo-700' : ''; ?>">
@@ -37,7 +37,7 @@
                     <a href="<?php echo esc_url(home_url('/doctors/')); ?>" class="transition-colors hover:text-indigo-700 <?php echo (is_post_type_archive('doctor') || is_singular('doctor') || is_page_template('page-doctors.php') || is_page('doctors')) ? 'text-indigo-700' : ''; ?>">
                         DOCTORS
                     </a>
-                    <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="transition-colors hover:text-indigo-700 <?php echo (is_singular('post') || is_category() || is_tag()) ? 'text-indigo-700' : ''; ?>">
+                    <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="transition-colors hover:text-indigo-700 <?php echo (is_home() || is_singular('post') || is_category() || is_tag()) ? 'text-indigo-700' : ''; ?>">
                         BLOG
                     </a>
                 </nav>
