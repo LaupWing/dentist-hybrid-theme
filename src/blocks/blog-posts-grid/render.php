@@ -127,35 +127,40 @@ $post_index = 0;
             </div>
 
             <!-- Pagination -->
-            <?php
-            $prev_text = '<svg class="mr-2 h-4 w-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg> Previous';
-            $next_text = 'Next <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>';
-
-            $pagination = paginate_links(array(
-                'total' => $blog_posts->max_num_pages,
-                'current' => $paged,
-                'mid_size' => 2,
-                'prev_text' => $prev_text,
-                'next_text' => $next_text,
-                'type' => 'array',
-            ));
-
-            if ($pagination && $blog_posts->max_num_pages > 1) : ?>
+            <?php if ($blog_posts->max_num_pages > 1) : ?>
                 <nav class="mt-16 flex justify-center" aria-label="Blog Pagination">
-                    <ul class="flex flex-wrap items-center gap-2">
-                        <?php foreach ($pagination as $page) : ?>
-                            <li>
-                                <?php
-                                // Add Tailwind classes to pagination links
-                                $page = str_replace('page-numbers', 'page-numbers inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-bold transition-colors', $page);
-                                $page = str_replace('current', 'current bg-indigo-600 text-white', $page);
-                                $page = str_replace('<a', '<a class="bg-slate-100 text-slate-700 hover:bg-indigo-600 hover:text-white"', $page);
-                                $page = str_replace('dots', 'dots text-slate-400 px-2', $page);
-                                echo $page;
-                                ?>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
+                    <div class="inline-flex items-center gap-2 bg-white p-2 shadow-sm">
+                        <?php
+                        // Previous button
+                        if (get_previous_posts_link()) : ?>
+                            <div class="previous">
+                                <?php previous_posts_link('<span class="inline-flex items-center gap-2 px-4 py-2 text-sm font-bold uppercase tracking-wider text-slate-700 transition-colors hover:text-indigo-600"><svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg> Prev</span>'); ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php
+                        // Page numbers
+                        for ($i = 1; $i <= $blog_posts->max_num_pages; $i++) :
+                            if ($i == $paged) : ?>
+                                <span class="inline-flex h-10 w-10 items-center justify-center bg-indigo-900 font-bold text-white">
+                                    <?php echo $i; ?>
+                                </span>
+                            <?php else : ?>
+                                <a href="<?php echo get_pagenum_link($i); ?>" class="inline-flex h-10 w-10 items-center justify-center font-bold text-slate-600 transition-colors hover:bg-slate-100 hover:text-indigo-900">
+                                    <?php echo $i; ?>
+                                </a>
+                            <?php endif;
+                        endfor;
+                        ?>
+
+                        <?php
+                        // Next button
+                        if (get_next_posts_link('', $blog_posts->max_num_pages)) : ?>
+                            <div class="next">
+                                <?php next_posts_link('<span class="inline-flex items-center gap-2 px-4 py-2 text-sm font-bold uppercase tracking-wider text-slate-700 transition-colors hover:text-indigo-600">Next <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>', $blog_posts->max_num_pages); ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
                 </nav>
             <?php endif; ?>
 
