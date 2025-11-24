@@ -56,7 +56,7 @@
             <!-- Mobile Menu Dropdown -->
             <div class="absolute left-0 right-0 top-full mt-4 hidden flex-col overflow-hidden rounded-xl bg-white shadow-xl peer-checked:flex md:hidden">
                 <nav class="flex flex-col p-4">
-                    <a href="<?php echo esc_url(home_url('/')); ?>" class="border-b border-slate-100 py-3 text-center font-bold text-slate-700 hover:text-indigo-700 <?php echo (is_front_page() || is_home()) ? 'text-indigo-700' : ''; ?>">
+                    <a href="<?php echo esc_url(home_url('/')); ?>" class="border-b border-slate-100 py-3 text-center font-bold text-slate-700 hover:text-indigo-700 <?php echo is_front_page() ? 'text-indigo-700' : ''; ?>">
                         HOME
                     </a>
                     <a href="<?php echo esc_url(home_url('/services/')); ?>" class="border-b border-slate-100 py-3 text-center font-bold text-slate-700 hover:text-indigo-700 <?php echo (is_post_type_archive('service') || is_singular('service') || is_page_template('page-services.php') || is_page('services')) ? 'text-indigo-700' : ''; ?>">
@@ -65,7 +65,7 @@
                     <a href="<?php echo esc_url(home_url('/doctors/')); ?>" class="border-b border-slate-100 py-3 text-center font-bold text-slate-700 hover:text-indigo-700 <?php echo (is_post_type_archive('doctor') || is_singular('doctor') || is_page_template('page-doctors.php') || is_page('doctors')) ? 'text-indigo-700' : ''; ?>">
                         DOCTORS
                     </a>
-                    <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="py-3 text-center font-bold text-slate-700 hover:text-indigo-700 <?php echo (is_singular('post') || is_category() || is_tag()) ? 'text-indigo-700' : ''; ?>">
+                    <a href="<?php echo esc_url(home_url('/blog/')); ?>" class="py-3 text-center font-bold text-slate-700 hover:text-indigo-700 <?php echo (is_home() || is_singular('post') || is_category() || is_tag()) ? 'text-indigo-700' : ''; ?>">
                         BLOG
                     </a>
                     <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="mt-2 w-full rounded-full bg-[#a3e635] px-6 py-3 text-center text-sm font-bold uppercase tracking-wider text-black">
