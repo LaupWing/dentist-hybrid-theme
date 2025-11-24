@@ -71,18 +71,12 @@ while (have_posts()) : the_post();
                 </p>
             <?php endif; ?>
 
-            <div class="mt-8 flex flex-wrap gap-4">
+            <div class="mt-8">
                 <a
                     href="<?php echo esc_url(home_url('/contact')); ?>"
                     class="rounded-full bg-[#a3e635] px-8 py-4 text-sm font-bold uppercase tracking-wider text-black transition-transform hover:scale-105"
                 >
                     Book Appointment
-                </a>
-                <a
-                    href="#details"
-                    class="rounded-full border border-white px-8 py-4 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-white/10"
-                >
-                    Learn More
                 </a>
             </div>
         </div>
