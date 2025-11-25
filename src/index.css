@@ -62,6 +62,11 @@ body {
   @apply translate-y-10 opacity-0 transition duration-300 ease-out motion-reduce:translate-y-0 motion-reduce:opacity-100;
 }
 
+/* Keep elements visible in WordPress admin/editor */
+.wp-admin [data-id] {
+  @apply translate-y-0 opacity-100;
+}
+
 .fade-in-start [data-id] {
   @apply translate-y-0 opacity-100;
 }
