@@ -9,6 +9,7 @@
   "keywords": ["contact", "form", "info", "address"],
   "textdomain": "dentist-hybrid-theme",
   "editorScript": "file:./index.js",
+  "viewScript": "file:./view.js",
   "render": "file:./render.php",
   "attributes": {
     "heading": {

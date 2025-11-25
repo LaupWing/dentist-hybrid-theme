@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Doctors Grid Block Template
  *
@@ -20,7 +21,7 @@ $doctors_query = new WP_Query([
 ]);
 ?>
 
-<section <?php echo get_block_wrapper_attributes(['class' => 'py-24']); ?>>
+<section data-id <?php echo get_block_wrapper_attributes(['class' => 'py-24']); ?>>
     <div class="container mx-auto">
         <div class="mb-12 flex items-center gap-4">
             <span class="whitespace-nowrap text-xs font-bold uppercase tracking-widest text-slate-500">

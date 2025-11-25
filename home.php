@@ -23,7 +23,7 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     <div class="py-6 bg-[#f0efe9]"></div>
 <?php endif; ?>
 
-<section class="bg-[#f0efe9] py-24">
+<section data-id class="bg-[#f0efe9] py-24">
     <div class="container mx-auto px-6">
         <div class="mb-12 flex items-center gap-4">
             <span class="whitespace-nowrap text-xs font-bold uppercase tracking-widest text-slate-500">

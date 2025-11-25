@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Contact Section Block Template
  *
@@ -18,7 +19,7 @@ $working_hours = $attributes['workingHours'] ?? 'Monday - Friday: 8:00 AM - 6:00
 $form_shortcode = $attributes['formShortcode'] ?? '';
 ?>
 
-<section <?php echo get_block_wrapper_attributes(['class' => 'pb-24 pt-12']); ?>>
+<section data-id <?php echo get_block_wrapper_attributes(['class' => 'pb-24 pt-12']); ?>>
     <div class="container mx-auto px-6">
         <div class="grid gap-12 lg:grid-cols-2">
             <!-- Contact Form -->
@@ -54,8 +55,7 @@ $form_shortcode = $attributes['formShortcode'] ?? '';
                                     name="name"
                                     required
                                     class="w-full border-b-2 border-slate-200 bg-transparent px-0 py-3 outline-none transition-colors focus:border-indigo-600"
-                                    placeholder="Jan Jansen"
-                                />
+                                    placeholder="Jan Jansen" />
                             </div>
                             <div class="space-y-2">
                                 <label for="phone" class="text-sm font-bold uppercase tracking-wider text-slate-700">
@@ -67,8 +67,7 @@ $form_shortcode = $attributes['formShortcode'] ?? '';
                                     name="phone"
                                     required
                                     class="w-full border-b-2 border-slate-200 bg-transparent px-0 py-3 outline-none transition-colors focus:border-indigo-600"
-                                    placeholder="+31 (0)6 1234 5678"
-                                />
+                                    placeholder="+31 (0)6 1234 5678" />
                             </div>
                         </div>
 
@@ -82,8 +81,7 @@ $form_shortcode = $attributes['formShortcode'] ?? '';
                                 name="email"
                                 required
                                 class="w-full border-b-2 border-slate-200 bg-transparent px-0 py-3 outline-none transition-colors focus:border-indigo-600"
-                                placeholder="jan@voorbeeld.nl"
-                            />
+                                placeholder="jan@voorbeeld.nl" />
                         </div>
 
                         <div class="space-y-2">
@@ -94,8 +92,7 @@ $form_shortcode = $attributes['formShortcode'] ?? '';
                                 id="service"
                                 name="service"
                                 required
-                                class="w-full border-b-2 border-slate-200 bg-transparent px-0 py-3 outline-none transition-colors focus:border-indigo-600"
-                            >
+                                class="w-full border-b-2 border-slate-200 bg-transparent px-0 py-3 outline-none transition-colors focus:border-indigo-600">
                                 <option value="">Selecteer een behandeling</option>
                                 <?php
                                 // Fetch all services dynamically
@@ -109,11 +106,11 @@ $form_shortcode = $attributes['formShortcode'] ?? '';
 
                                 if ($services->have_posts()) :
                                     while ($services->have_posts()) : $services->the_post();
-                                        ?>
+                                ?>
                                         <option value="<?php echo esc_attr(get_the_ID()); ?>">
                                             <?php echo esc_html(get_the_title()); ?>
                                         </option>
-                                    <?php endwhile;
+                                <?php endwhile;
                                     wp_reset_postdata();
                                 endif;
                                 ?>
@@ -129,14 +126,12 @@ $form_shortcode = $attributes['formShortcode'] ?? '';
                                 name="message"
                                 rows="4"
                                 class="w-full border-b-2 border-slate-200 bg-transparent px-0 py-3 outline-none transition-colors focus:border-indigo-600"
-                                placeholder="Vertel ons over jouw tandheelkundige wensen..."
-                            ></textarea>
+                                placeholder="Vertel ons over jouw tandheelkundige wensen..."></textarea>
                         </div>
 
                         <button
                             type="submit"
-                            class="mt-4 w-full rounded-full bg-[#a3e635] px-8 py-4 text-sm font-bold uppercase tracking-wider text-black transition-transform hover:scale-[1.02]"
-                        >
+                            class="mt-4 w-full rounded-full bg-[#a3e635] px-8 py-4 text-sm font-bold uppercase tracking-wider text-black transition-transform hover:scale-[1.02]">
                             Verstuur Aanvraag
                         </button>
                     </form>
@@ -215,8 +210,7 @@ $form_shortcode = $attributes['formShortcode'] ?? '';
                         allowfullscreen=""
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"
-                        title="Locatiekaart"
-                    ></iframe>
+                        title="Locatiekaart"></iframe>
                 </div>
             </div>
         </div>
