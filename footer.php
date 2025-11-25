@@ -90,9 +90,11 @@
         </div>
     </div>
 
-    <!-- Giant Watermark Footer Text (decorative) -->
-    <div class="pointer-events-none absolute bottom-0 left-0 right-0 select-none text-center leading-none" aria-hidden="true">
-        <div class="font-oswald text-[24vw] font-bold uppercase text-slate-200/50">Smileo</div>
+    <!-- Giant Watermark Footer Text (decorative SVG) -->
+    <div class="pointer-events-none absolute bottom-0 left-0 right-0 select-none overflow-hidden" aria-hidden="true">
+        <svg class="w-full" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMax meet">
+            <text x="50%" y="280" text-anchor="middle" font-family="Oswald, sans-serif" font-size="320" font-weight="700" fill="#e2e8f0" fill-opacity="0.5" letter-spacing="-0.02em">SMILEO</text>
+        </svg>
     </div>
 </footer>
 
