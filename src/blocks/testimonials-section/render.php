@@ -28,7 +28,7 @@ $unique_id = 'testimonials-' . uniqid();
     <div class="container mx-auto text-center">
         <div class="mb-8 flex items-center gap-4">
             <div class="h-[2px] w-full bg-slate-300"></div>
-            <span class="whitespace-nowrap text-xs font-bold uppercase tracking-widest text-slate-500">
+            <span class="whitespace-nowrap text-xs font-bold uppercase tracking-widest text-slate-600">
                 <?php echo esc_html($section_label); ?>
             </span>
             <div class="h-[2px] w-full bg-slate-300"></div>
@@ -37,7 +37,7 @@ $unique_id = 'testimonials-' . uniqid();
         <h2 class="mx-auto mb-4 max-w-2xl text-5xl font-bold uppercase leading-none tracking-tight text-[#4338ca] md:text-6xl">
             <?php echo wp_kses_post($heading); ?>
         </h2>
-        <p class="mx-auto mb-8 max-w-lg text-sm text-slate-500">
+        <p class="mx-auto mb-8 max-w-lg text-sm text-slate-600">
             <?php echo wp_kses_post($description); ?>
         </p>
 
@@ -69,10 +69,10 @@ $unique_id = 'testimonials-' . uniqid();
                                 <div class="px-8 text-center">
                                     <div class="font-bold text-slate-900"><?php echo esc_html(get_the_title()); ?></div>
                                     <?php if ($email) : ?>
-                                        <div class="text-sm text-slate-500"><?php echo esc_html($email); ?></div>
+                                        <div class="text-sm text-slate-600"><?php echo esc_html($email); ?></div>
                                     <?php endif; ?>
                                     <?php if ($company) : ?>
-                                        <div class="text-xs text-slate-400"><?php echo esc_html($company); ?></div>
+                                        <div class="text-xs text-slate-600"><?php echo esc_html($company); ?></div>
                                     <?php endif; ?>
                                 </div>
                             </div>

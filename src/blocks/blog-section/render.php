@@ -25,7 +25,7 @@ $blog_posts = new WP_Query(array(
 <section <?php echo get_block_wrapper_attributes(['class' => 'bg-[#f0efe9] py-24']); ?>>
     <div class="container mx-auto px-6">
         <div class="mb-4 flex items-center gap-4">
-            <span class="whitespace-nowrap text-xs font-bold uppercase tracking-widest text-slate-500">Blog</span>
+            <span class="whitespace-nowrap text-xs font-bold uppercase tracking-widest text-slate-600">Blog</span>
             <div class="h-[2px] w-full bg-slate-300"></div>
         </div>
 
@@ -33,7 +33,7 @@ $blog_posts = new WP_Query(array(
             <h2 class="font-oswald mb-4 text-5xl font-bold uppercase leading-none tracking-tight text-[#4338ca] md:text-6xl">
                 <?php echo wp_kses_post($heading); ?>
             </h2>
-            <p class="max-w-lg text-sm text-slate-500">
+            <p class="max-w-lg text-sm text-slate-600">
                 <?php echo wp_kses_post($description); ?>
             </p>
         </div>
@@ -59,7 +59,7 @@ $blog_posts = new WP_Query(array(
                                         <?php the_post_thumbnail('large', ['class' => 'h-full w-full object-cover transition-transform duration-500 group-hover:scale-105']); ?>
                                     <?php endif; ?>
                                 </div>
-                                <div class="mb-2 text-xs text-slate-500">
+                                <div class="mb-2 text-xs text-slate-600">
                                     <?php echo get_the_date('M j, Y'); ?>
                                 </div>
                                 <h3 class="mb-3 text-2xl font-bold leading-tight group-hover:text-indigo-600">
@@ -91,7 +91,7 @@ $blog_posts = new WP_Query(array(
                                         <?php the_post_thumbnail('medium', ['class' => 'h-full w-full object-cover transition-transform duration-500 group-hover:scale-105']); ?>
                                     <?php endif; ?>
                                 </div>
-                                <div class="mb-2 text-xs text-slate-500">
+                                <div class="mb-2 text-xs text-slate-600">
                                     <?php echo get_the_date('M j, Y'); ?>
                                 </div>
                                 <h3 class="mb-4 text-lg font-bold leading-tight group-hover:text-indigo-600">

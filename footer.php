@@ -11,14 +11,14 @@
 
             <div>
                 <div class="mb-2 text-xs text-slate-500">Sign up for our newsletter (No spam)</div>
-                <form class="flex max-w-xs border-b border-slate-300 pb-2">
+                <form class="flex max-w-xs items-center gap-2 border-b border-slate-300 pb-2">
                     <input
                         type="email"
                         placeholder="Your email"
-                        class="w-full bg-transparent outline-none placeholder:text-slate-400"
+                        class="min-h-12 w-full bg-transparent outline-none placeholder:text-slate-400"
                     />
-                    <button type="submit" aria-label="Subscribe to newsletter">
-                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <button type="submit" aria-label="Subscribe to newsletter" class="flex h-12 w-12 shrink-0 items-center justify-center rounded-md transition-colors hover:bg-slate-200">
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                         </svg>
                     </button>
@@ -90,8 +90,8 @@
         </div>
     </div>
 
-    <!-- Giant Watermark Footer Text -->
-    <div class="pointer-events-none absolute bottom-0 left-0 right-0 select-none text-center leading-none">
+    <!-- Giant Watermark Footer Text (decorative) -->
+    <div class="pointer-events-none absolute bottom-0 left-0 right-0 select-none text-center leading-none" aria-hidden="true">
         <div class="font-oswald text-[24vw] font-bold uppercase text-slate-200/50">Smileo</div>
     </div>
 </footer>
