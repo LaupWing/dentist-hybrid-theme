@@ -72,7 +72,7 @@ $icons = [
                 </a>
                 <a
                     href="<?php echo esc_url($secondary_button_url); ?>"
-                    class="rounded-full border border-white/30 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white backdrop-blur-sm transition-colors hover:bg-white/10">
+                    class="rounded-full border-2 border-white px-8 py-4 text-sm font-bold uppercase tracking-wider text-white backdrop-blur-sm transition-colors hover:bg-white/10">
                     <?php echo esc_html($secondary_button_text); ?>
                 </a>
             </div>
@@ -86,7 +86,7 @@ $icons = [
                         <?php echo $icons[$card['icon']] ?? $icons['plus']; ?>
                     </svg>
                     <div>
-                        <h3 class="mb-2 text-xl font-bold text-white"><?php echo esc_html($card['title']); ?></h3>
+                        <h2 class="mb-2 text-xl font-bold text-white"><?php echo esc_html($card['title']); ?></h2>
                         <p class="text-sm text-slate-300"><?php echo esc_html($card['description']); ?></p>
                     </div>
                 </div>

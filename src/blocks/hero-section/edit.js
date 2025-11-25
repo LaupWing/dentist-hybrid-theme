@@ -152,7 +152,7 @@ export default function Edit({ attributes, setAttributes }) {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
                                 </svg>
                             </a>
-                            <a className="rounded-full border border-white/30 px-8 py-4 text-sm font-bold uppercase tracking-wider text-white backdrop-blur-sm transition-colors hover:bg-white/10">
+                            <a className="rounded-full border-2 border-white px-8 py-4 text-sm font-bold uppercase tracking-wider text-white backdrop-blur-sm transition-colors hover:bg-white/10">
                                 {secondaryButtonText}
                             </a>
                         </div>
@@ -167,7 +167,7 @@ export default function Edit({ attributes, setAttributes }) {
                             >
                                 <IconSVG icon={card.icon} />
                                 <div>
-                                    <h3 className="mb-2 text-xl font-bold text-white">{card.title}</h3>
+                                    <h2 className="mb-2 text-xl font-bold text-white">{card.title}</h2>
                                     <p className="text-sm text-slate-300">{card.description}</p>
                                 </div>
                             </div>

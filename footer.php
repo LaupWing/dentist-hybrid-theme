@@ -1,7 +1,7 @@
 <footer class="relative overflow-hidden bg-slate-50 pb-24 pt-32 text-sm font-medium text-slate-900">
     <div class="container relative z-10 mx-auto grid gap-12 md:grid-cols-4">
         <div class="md:col-span-2">
-            <h4 class="mb-6 font-bold">Do it once. Do it right.</h4>
+            <p class="mb-6 font-bold text-lg">Do it once. Do it right.</p>
             <div class="mb-8">
                 <div class="mb-1 text-xs text-slate-500">E-Mail</div>
                 <a href="mailto:hello@smileo.com" class="text-lg underline decoration-slate-300 underline-offset-4">
@@ -17,8 +17,8 @@
                         placeholder="Your email"
                         class="w-full bg-transparent outline-none placeholder:text-slate-400"
                     />
-                    <button type="submit">
-                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button type="submit" aria-label="Subscribe to newsletter">
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                         </svg>
                     </button>
