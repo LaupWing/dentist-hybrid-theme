@@ -54,7 +54,7 @@ $icons = [
 
         <div class="mb-16 flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
             <div class="min-w-0 max-w-full overflow-hidden">
-                <h2 class="text-6xl font-bold uppercase leading-none tracking-tight md:text-7xl break-words">
+                <h2 class="text-6xl font-bold font-oswald uppercase leading-none tracking-tight md:text-7xl">
                     <?php echo wp_kses_post($heading); ?>
                 </h2>
                 <p class="mt-6 max-w-xl text-indigo-100 break-words">

@@ -34,7 +34,7 @@ $unique_id = 'testimonials-' . uniqid();
             <div class="h-[2px] w-full bg-slate-300"></div>
         </div>
 
-        <h2 class="mx-auto mb-4 max-w-2xl text-5xl font-bold uppercase leading-none tracking-tight text-[#4338ca] md:text-6xl break-words">
+        <h2 class="mx-auto mb-4 max-w-2xl text-5xl font-bold font-oswald uppercase leading-none tracking-tight text-[#4338ca] md:text-6xl">
             <?php echo wp_kses_post($heading); ?>
         </h2>
         <p class="mx-auto mb-8 max-w-lg text-sm text-slate-600 break-words">
