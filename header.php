@@ -118,28 +118,43 @@
         const iconClose = document.getElementById('menu-icon-close');
         let isOpen = false;
 
+        function closeMenu() {
+            if (!isOpen) return;
+            menu.style.maxHeight = '0';
+            toggle.setAttribute('aria-expanded', 'false');
+            iconOpen.classList.remove('hidden');
+            iconClose.classList.add('hidden');
+
+            setTimeout(function() {
+                container.classList.remove('rounded-2xl');
+                container.classList.add('rounded-full');
+            }, 200);
+            isOpen = false;
+        }
+
+        function openMenu() {
+            container.classList.remove('rounded-full');
+            container.classList.add('rounded-2xl');
+            menu.style.maxHeight = menu.scrollHeight + 'px';
+            toggle.setAttribute('aria-expanded', 'true');
+            iconOpen.classList.add('hidden');
+            iconClose.classList.remove('hidden');
+            isOpen = true;
+        }
+
         toggle.addEventListener('click', function() {
             if (isOpen) {
-                // Close menu
-                menu.style.maxHeight = '0';
-                toggle.setAttribute('aria-expanded', 'false');
-                iconOpen.classList.remove('hidden');
-                iconClose.classList.add('hidden');
-
-                setTimeout(function() {
-                    container.classList.remove('rounded-2xl');
-                    container.classList.add('rounded-full');
-                }, 200);
+                closeMenu();
             } else {
-                // Open menu
-                container.classList.remove('rounded-full');
-                container.classList.add('rounded-2xl');
-                menu.style.maxHeight = menu.scrollHeight + 'px';
-                toggle.setAttribute('aria-expanded', 'true');
-                iconOpen.classList.add('hidden');
-                iconClose.classList.remove('hidden');
+                openMenu();
             }
-            isOpen = !isOpen;
+        });
+
+        // Close menu when clicking outside the header
+        document.addEventListener('click', function(e) {
+            if (isOpen && !container.contains(e.target)) {
+                closeMenu();
+            }
         });
     });
     </script>
