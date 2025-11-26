@@ -42,40 +42,40 @@ $decorative_icon = $attributes['decorativeIcon'] ?? '';
         </div>
 
         <div class="mb-20 grid gap-12 lg:grid-cols-2">
-            <div>
-                <h2 class="mb-8 text-6xl font-bold uppercase leading-none tracking-tight text-[#4338ca] md:text-7xl">
+            <div class="min-w-0 max-w-full overflow-hidden">
+                <h2 class="mb-8 text-6xl font-bold uppercase leading-none tracking-tight text-[#4338ca] md:text-7xl break-words">
                     <?php echo wp_kses_post($heading); ?>
                 </h2>
 
-                <div class="mb-8 space-y-6 text-slate-600">
+                <div class="mb-8 space-y-6 text-slate-600 break-words">
                     <p><?php echo wp_kses_post($paragraph1); ?></p>
                     <p><?php echo wp_kses_post($paragraph2); ?></p>
                 </div>
             </div>
 
-            <div class="relative">
+            <div class="relative min-w-0 max-w-full overflow-hidden">
                 <!-- Decorative Icons Row -->
-                <div class="mb-12 flex justify-end gap-4">
+                <div class="mb-12 flex flex-wrap justify-center gap-2 md:justify-end md:gap-4">
                     <?php for ($i = 1; $i <= 5; $i++) : ?>
-                        <div class="flex h-16 w-16 items-center justify-center rounded-full bg-indigo-50 p-3">
+                        <div class="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-50 p-2 md:h-16 md:w-16 md:p-3">
                             <?php if (!empty($decorative_icon)) : ?>
                                 <img
                                     src="<?php echo esc_url($decorative_icon); ?>"
                                     alt="icon"
                                     class="h-10 w-10 rounded-full object-cover" />
                             <?php else : ?>
-                                <div class="h-10 w-10 rounded-full bg-indigo-100"></div>
+                                <div class="h-8 w-8 rounded-full bg-indigo-100 md:h-10 md:w-10"></div>
                             <?php endif; ?>
                         </div>
                     <?php endfor; ?>
                 </div>
 
                 <!-- Stats -->
-                <div class="grid grid-cols-3 gap-8 text-center">
+                <div class="grid grid-cols-1 gap-6 text-center md:grid-cols-3 md:gap-8">
                     <?php foreach ($stats as $stat) : ?>
                         <div>
-                            <div class="text-4xl font-bold text-slate-900"><?php echo esc_html($stat['number']); ?></div>
-                            <div class="text-sm text-slate-500"><?php echo esc_html($stat['label']); ?></div>
+                            <div class="text-3xl font-bold text-slate-900 md:text-4xl"><?php echo esc_html($stat['number']); ?></div>
+                            <div class="text-sm text-slate-500 break-words"><?php echo esc_html($stat['label']); ?></div>
                         </div>
                     <?php endforeach; ?>
                 </div>

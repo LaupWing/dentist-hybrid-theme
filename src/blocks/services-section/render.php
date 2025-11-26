@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Services Section Block Template
  *
@@ -52,25 +53,23 @@ $icons = [
         </div>
 
         <div class="mb-16 flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
-            <div>
-                <h2 class="text-6xl font-bold uppercase leading-none tracking-tight md:text-7xl">
+            <div class="min-w-0 max-w-full overflow-hidden">
+                <h2 class="text-6xl font-bold uppercase leading-none tracking-tight md:text-7xl break-words">
                     <?php echo wp_kses_post($heading); ?>
                 </h2>
-                <p class="mt-6 max-w-xl text-indigo-100">
+                <p class="mt-6 max-w-xl text-indigo-100 break-words">
                     <?php echo wp_kses_post($description); ?>
                 </p>
             </div>
             <a
                 href="<?php echo esc_url($button_url); ?>"
-                class="whitespace-nowrap rounded-full bg-[#a3e635] px-8 py-4 text-sm font-bold uppercase tracking-wider text-black transition-transform hover:scale-105"
-            >
+                class="whitespace-nowrap rounded-full bg-[#a3e635] px-8 py-4 text-sm font-bold uppercase tracking-wider text-black transition-transform hover:scale-105">
                 <?php echo esc_html($button_text); ?>
                 <svg class="ml-2 inline h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                 </svg>
             </a>
         </div>
-
         <div class="grid gap-6 md:grid-cols-3">
             <?php foreach ($services as $service) : ?>
                 <div class="service-card group flex flex-col overflow-hidden rounded-lg bg-white text-slate-900">
@@ -80,15 +79,14 @@ $icons = [
                                 <?php echo $icons[$service['icon']] ?? $icons['plus']; ?>
                             </svg>
                         </div>
-                        <h3 class="mb-2 text-xl font-bold"><?php echo esc_html($service['title']); ?></h3>
-                        <p class="text-sm text-slate-500"><?php echo esc_html($service['description']); ?></p>
+                        <h3 class="mb-2 text-xl font-bold break-words"><?php echo esc_html($service['title']); ?></h3>
+                        <p class="text-sm text-slate-500 break-words"><?php echo esc_html($service['description']); ?></p>
                     </div>
                     <div class="service-card-image relative mt-auto h-64 flex-shrink-0 overflow-hidden">
                         <img
                             src="<?php echo esc_url($service['image']); ?>"
                             alt="<?php echo esc_attr($service['title']); ?>"
-                            class="h-full w-full object-cover transition-all duration-500 group-hover:scale-105"
-                        />
+                            class="h-full w-full object-cover transition-all duration-500 group-hover:scale-105" />
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 transition-opacity group-hover:opacity-100"></div>
                     </div>
                 </div>

@@ -34,10 +34,10 @@ $unique_id = 'testimonials-' . uniqid();
             <div class="h-[2px] w-full bg-slate-300"></div>
         </div>
 
-        <h2 class="mx-auto mb-4 max-w-2xl text-5xl font-bold uppercase leading-none tracking-tight text-[#4338ca] md:text-6xl">
+        <h2 class="mx-auto mb-4 max-w-2xl text-5xl font-bold uppercase leading-none tracking-tight text-[#4338ca] md:text-6xl break-words">
             <?php echo wp_kses_post($heading); ?>
         </h2>
-        <p class="mx-auto mb-8 max-w-lg text-sm text-slate-600">
+        <p class="mx-auto mb-8 max-w-lg text-sm text-slate-600 break-words">
             <?php echo wp_kses_post($description); ?>
         </p>
 
@@ -52,7 +52,7 @@ $unique_id = 'testimonials-' . uniqid();
                     </button>
 
                     <!-- Testimonials Content Container -->
-                    <div id="<?php echo esc_attr($unique_id); ?>" class="testimonials-carousel flex-1">
+                    <div id="<?php echo esc_attr($unique_id); ?>" class="testimonials-carousel flex-1 min-w-0 max-w-full overflow-hidden">
                         <?php
                         $index = 0;
                         while ($testimonials_query->have_posts()) :
@@ -62,7 +62,7 @@ $unique_id = 'testimonials-' . uniqid();
                             $is_active = $index === 0 ? 'active' : '';
                         ?>
                             <div class="testimonial-slide <?php echo esc_attr($is_active); ?>" data-index="<?php echo esc_attr($index); ?>">
-                                <div class="mb-12 text-lg font-medium leading-relaxed text-slate-800 md:text-2xl lg:text-3xl">
+                                <div class="mb-12 text-lg font-medium leading-relaxed text-slate-800 md:text-2xl lg:text-3xl break-words">
                                     "<?php echo wp_kses_post(get_the_content()); ?>"
                                 </div>
 
