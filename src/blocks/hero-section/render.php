@@ -46,7 +46,7 @@ $icons = [
     <img
         src="<?php echo esc_url($background_image); ?>"
         alt="Dental Care"
-        class="absolute inset-0 h-full w-full object-cover opacity-60" />
+        class="absolute inset-0 h-full w-full object-cover opacity-60!" />
 
     <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
 
